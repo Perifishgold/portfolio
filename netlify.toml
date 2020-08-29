@@ -1,4 +1,4 @@
 [build]
-publish = 'dist'
+publish = 'dist/yanaCV'
 command = 'npm run build'
 
