@@ -1,32 +1,63 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  template: `
-    <!--The content below is only a placeholder and can be replaced.-->
-    <div style="text-align:center" class="content">
-      <h1>
-        Welcome to {{title}}!
-      </h1>
-      <span style="display: block">{{ title }} app is running!</span>
-      <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-    </div>
-    <h2>Here are some links to help you start: </h2>
-    <ul>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-      </li>
-    </ul>
-    <router-outlet></router-outlet>
-  `,
-  styles: []
+    selector: 'app-root',
+    template: `
+        <div class="container">
+            <div class="header">
+
+            </div>
+            <div class="side-bar">
+                <img class="profile-photo" src="../assets/img/profile.jpg" alt="profile-img">
+            </div>
+            <div class="content">
+                <mat-tab-group animationDuration="0ms">
+                    <mat-tab label="First">Content 1</mat-tab>
+                    <mat-tab label="Second">Content 2</mat-tab>
+                    <mat-tab label="Third">Content 3</mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+
+
+        <router-outlet></router-outlet>
+    `,
+    styles: [`
+        .container {
+            height: 100%;
+
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            grid-template-rows: 1fr 4fr;
+            grid-column-gap: 10px;
+            grid-template-areas: 'header header' 'side-bar content';
+        }
+
+        .header {
+            
+            grid-area: header;
+        }
+
+        .side-bar {
+            grid-area: side-bar;
+            background-color: #aabbd2;
+
+            text-align: center;
+        }
+
+        .profile-photo {
+            border-radius: 40px;
+            width: 80px;
+        }
+
+        .content {
+            grid-area: content;
+            background-color: aliceblue;
+        }
+
+
+    `]
 })
 export class AppComponent {
-  title = 'yanaCV';
+
 }
