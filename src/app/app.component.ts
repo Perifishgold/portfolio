@@ -5,9 +5,6 @@ import {Router} from "@angular/router";
     selector: 'app-root',
     template: `
         <div class="container">
-            <div class="header">
-                <h1 class="headline">יאנה חיטרוב</h1>
-            </div>
             <div class="navigation">
                 <nav mat-tab-nav-bar>
                     <a mat-tab-link
@@ -23,31 +20,15 @@ import {Router} from "@angular/router";
     `,
     styles: [`
         .container {
+            background: url("../assets/img/background.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            /*background-position: center;*/
             height: 100%;
-            padding-right: 2%;
-            padding-left: 2%;
-        }
-
-        .header {
-            background-image: url("../assets/img/website-background-pattern.jpg");
-            grid-area: header;
-            margin-top: 14px;
-            height: 30%;
-            position: relative;
-        }
-
-        .headline {
-            position: absolute;
-            bottom: 0;
         }
 
         .navigation {
-            grid-area: navigation;
-        }
-
-        .content {
-            grid-area: content;
-            background-color: #ffc10700;
+            padding-top: 5%
         }
 
 
@@ -60,15 +41,15 @@ export class AppComponent implements OnInit {
     constructor(private router: Router) {
         this.routeLinks = [
             {
-                label: 'קורות חיים',
+                label: '2020',
                 link: './about',
                 index: 0
             }, {
-                label: 'תיק עבודות',
+                label: '2019',
                 link: './portfolio',
                 index: 1
             }, {
-                label: 'צור קשר',
+                label: '2018',
                 link: './contactDetails',
                 index: 2
             }

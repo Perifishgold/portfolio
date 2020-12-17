@@ -8,13 +8,15 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { AboutComponent } from './about.component';
 import { PortfolioComponent } from './portfolio.component';
 import { ContactDetailsComponent } from './contact-details.component';
+import { HomeComponent } from './home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     PortfolioComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
