@@ -5,7 +5,11 @@ import {Component, OnInit} from '@angular/core';
     template: `
         <div class="homeContainer">
             <div class="navigation">
-                <div class="tabs verticalLine"></div>
+                <div class="tabs verticalLine">
+                    <h3 class="tab rotate">קורות חיים</h3>
+                    <h3 class="tab rotate">ART</h3>
+                    <h3 class="tab rotate">צור קשר</h3>
+                </div>
             </div>
             <div class="content">
                 <div class="headline">
@@ -34,7 +38,7 @@ import {Component, OnInit} from '@angular/core';
             display: inline-block;
             position: absolute;
             top: 30%;
-            left: 0;
+            left: 4%;
         }
 
         .textRight {
@@ -58,7 +62,7 @@ import {Component, OnInit} from '@angular/core';
         .secondaryHeadline {
             font-size: 20px;
             /*line-height: 15px;*/
-            font-family: Lupa Pinky,serif;
+            font-family: Lupa Pinky, serif;
             letter-spacing: -0.25px;
             color: #C55858;
             opacity: 1;
@@ -74,10 +78,27 @@ import {Component, OnInit} from '@angular/core';
             position: absolute;
             top: 20%;
             height: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
         }
 
         .verticalLine {
-            border-right: 3px solid #ffffff;
+            border-right: 2px solid #ffffff;
+        }
+        .rotate{
+            transform: rotate(270deg);
+        }
+        .tab {
+            text-align: center;
+            font-size: 18px;
+            line-height: 12px;
+            font-family: NarkisBlockCondensedMF,serif;
+            letter-spacing: 0;
+            color: #000000;
+            opacity: 1;
+            
+            cursor: pointer;
         }
 
 
@@ -85,6 +106,7 @@ import {Component, OnInit} from '@angular/core';
             font-family: Agency FB;
             src: url(../assets/font/AGENCYR.TTF) format("truetype");
         }
+
         @font-face {
             font-family: Lupa Pinky;
             src: url('../assets/font/BN Pinky.ttf') format("truetype");
