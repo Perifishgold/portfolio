@@ -9,6 +9,10 @@ import { AboutComponent } from './about.component';
 import { PortfolioComponent } from './portfolio.component';
 import { ContactDetailsComponent } from './contact-details.component';
 import { HomeComponent } from './home.component';
+import { PortfolioProjectComponent } from './portfolio-project.component';
+import { FinalProjectComponent } from './final-project.component';
+import { ImageSliderComponent } from './image-slider.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +20,10 @@ import { HomeComponent } from './home.component';
     AboutComponent,
     PortfolioComponent,
     ContactDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    PortfolioProjectComponent,
+    FinalProjectComponent,
+    ImageSliderComponent,
   ],
   imports: [
     BrowserModule,

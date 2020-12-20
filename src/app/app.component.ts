@@ -23,7 +23,6 @@ import {Router} from "@angular/router";
             background: url("../assets/img/background.jpeg");
             background-repeat: no-repeat;
             background-size: cover;
-            /*background-position: center;*/
             height: 100%;
         }
 
@@ -42,7 +41,7 @@ export class AppComponent implements OnInit {
         this.routeLinks = [
             {
                 label: '2020',
-                link: './about',
+                link: './final-project',
                 index: 0
             }, {
                 label: '2019',
