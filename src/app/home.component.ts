@@ -60,8 +60,8 @@ import {Component, OnInit} from '@angular/core';
         }
 
         .secondaryHeadline {
-            font-size: 0.7rem;
-            line-height: 1rem;
+            font-size: 20px;
+            line-height: 1.3rem;
             font-family: Lupa Pinky, serif;
             letter-spacing: -0.25px;
             color: #C55858;
