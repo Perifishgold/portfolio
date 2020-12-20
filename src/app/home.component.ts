@@ -78,6 +78,7 @@ import {Component, OnInit} from '@angular/core';
             position: absolute;
             top: 20%;
             height: 30%;
+            min-height:245px ;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
