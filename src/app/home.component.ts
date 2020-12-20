@@ -15,7 +15,7 @@ import {Component, OnInit} from '@angular/core';
                 <div class="headline">
                     <h4 class="secondaryHeadline textLeft">Yana Hitrov</h4>
                     <h1 class="primaryHeadline">PoRtFoLio</h1>
-                    <h4 class="secondaryHeadline textRight">תיק עבודות</h4>
+                    <h4 class="secondaryHeadline textRight lowerHeadline">תיק עבודות</h4>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@ import {Component, OnInit} from '@angular/core';
             display: inline-block;
             position: absolute;
             top: 30%;
-            left: 4%;
+            left: 3%;
         }
 
         .textRight {
@@ -51,21 +51,27 @@ import {Component, OnInit} from '@angular/core';
 
         .primaryHeadline {
             text-align: center;
-            font-size: 3rem;
-            line-height: 1rem;
+            font-size: 2rem;
+            line-height: 2rem;
             font-family: Agency FB, serif;
             letter-spacing: 0;
             color: #000000;
             opacity: 1;
+            margin: 0
         }
 
         .secondaryHeadline {
             font-size: 20px;
-            line-height: 1.3rem;
+            line-height: 20px;
             font-family: Lupa Pinky, serif;
             letter-spacing: -0.25px;
             color: #C55858;
             opacity: 1;
+            margin: 0
+        }
+        
+        .lowerHeadline{
+            line-height: 8px;
         }
 
         .navigation {
@@ -76,7 +82,7 @@ import {Component, OnInit} from '@angular/core';
         .tabs {
             margin-right: 18px;
             position: absolute;
-            top: 20%;
+            top: 21%;
             height: 30%;
             min-height:245px ;
             display: flex;
