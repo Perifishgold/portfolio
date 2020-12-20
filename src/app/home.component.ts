@@ -51,8 +51,8 @@ import {Component, OnInit} from '@angular/core';
 
         .primaryHeadline {
             text-align: center;
-            font-size: 75px;
-            line-height: 26px;
+            font-size: 3rem;
+            line-height: 1rem;
             font-family: Agency FB, serif;
             letter-spacing: 0;
             color: #000000;
@@ -60,8 +60,8 @@ import {Component, OnInit} from '@angular/core';
         }
 
         .secondaryHeadline {
-            font-size: 20px;
-            /*line-height: 15px;*/
+            font-size: 0.7rem;
+            line-height: 1rem;
             font-family: Lupa Pinky, serif;
             letter-spacing: -0.25px;
             color: #C55858;
@@ -86,18 +86,20 @@ import {Component, OnInit} from '@angular/core';
         .verticalLine {
             border-right: 2px solid #ffffff;
         }
-        .rotate{
+
+        .rotate {
             transform: rotate(270deg);
         }
+
         .tab {
             text-align: center;
             font-size: 18px;
             line-height: 12px;
-            font-family: NarkisBlockCondensedMF,serif;
+            font-family: NarkisBlockCondensedMF, serif;
             letter-spacing: 0;
             color: #000000;
             opacity: 1;
-            
+
             cursor: pointer;
         }
 

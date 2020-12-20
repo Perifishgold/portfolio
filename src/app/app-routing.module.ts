@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import {AboutComponent} from "./about.component";
 import {PortfolioComponent} from "./portfolio.component";
 import {ContactDetailsComponent} from "./contact-details.component";
-import {AppComponent} from "./app.component";
 import {HomeComponent} from "./home.component";
 
 const routes: Routes = [
@@ -16,7 +15,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'contactDetails', component: ContactDetailsComponent },
-  { path: '**', redirectTo: '/product1', pathMatch: 'full' }
+  { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
