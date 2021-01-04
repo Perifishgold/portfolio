@@ -9,10 +9,14 @@ type SliderType = 'selectableSlider' | 'singleImageSlider';
     selector: 'app-image-slider',
     template: `
         <div dir="ltr" class="sliderContainer">
+            <a class="slider-buttons" (click)="moveRight()">&lsaquo;</a>
             <div class="imageCropper" [ngClass]="getImageCropper()">
                 <ng-container *ngFor="let projectImage of this.images; let i = index">
                     <img (click)="selectImage(projectImage)"
-                         [ngClass]="{'selected': imageService.selectedImage===projectImage}"
+                         [ngClass]=
+                                 "{'selected': imageService.selectedImage===projectImage, 
+                                   'selectableImage': sliderType==='selectableSlider',
+                                   'coverImage': sliderType==='singleImageSlider' }"
                          [@move]="state"
                          (@move.done)="onFinish($event)"
                          (@move.start)="onStart($event)"
@@ -21,26 +25,21 @@ type SliderType = 'selectableSlider' | 'singleImageSlider';
                          alt=""/>
                 </ng-container>
             </div>
-            <div>
-                <a id="slider-buttons" class="slideRight" (click)="moveLeft()">&#10095;</a>
-                <a id="slider-buttons" class="slideLeft" (click)="moveRight()">&#10094;</a>
-            </div>
+            <a class="slider-buttons" (click)="moveLeft()">&rsaquo;</a>
         </div>
     `,
     styles: [`
         .sliderContainer {
             position: relative;
-            overflow: hidden;
             height: 100%;
         }
 
-        #slider-buttons {
-            position: absolute;
-            top: 50%;
+        .slider-buttons {
             z-index: 1000;
             cursor: pointer;
             font-size: 250%;
-            color: #ffffff;
+            color: #726868;
+            user-select: none;
         }
 
         .slideRight {
@@ -58,10 +57,12 @@ type SliderType = 'selectableSlider' | 'singleImageSlider';
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
+            overflow: hidden;
         }
 
         .selectableSlider {
-            height: 350px;
+            height: 250px;
+            flex-wrap: wrap;
         }
 
         .singleImageSlider {
@@ -70,10 +71,16 @@ type SliderType = 'selectableSlider' | 'singleImageSlider';
         }
 
         img {
-            max-width: 100%;
-            max-height: 50%;
-            margin: 5px;
+            padding: 5px;
+        }
+
+        .selectableImage {
             cursor: pointer;
+            max-height: 45%;
+        }
+
+        .coverImage{
+            max-width: 100%;
         }
 
         .selected {
