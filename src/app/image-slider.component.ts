@@ -3,26 +3,24 @@ import {animate, style, state, transition, trigger} from "@angular/animations";
 import {ImageService, ProjectImage} from "./image.service";
 
 
-type SliderType = 'selectableSlider' | 'singleImageSlider';
-
 @Component({
     selector: 'app-image-slider',
     template: `
         <div dir="ltr" class="sliderContainer">
-            <a class="slider-buttons" (click)="moveRight()">&lsaquo;</a>
-            <div class="imageCropper" [ngClass]="getImageCropper()">
+            <a class="slider-buttons " (click)="moveRight()">&lsaquo;</a>
+            <div class="imageCropper selectableSlider">
                 <ng-container *ngFor="let projectImage of this.images; let i = index">
-                    <img (click)="selectImage(projectImage)"
-                         [ngClass]=
-                                 "{'selected': imageService.selectedImage===projectImage, 
-                                   'selectableImage': sliderType==='selectableSlider',
-                                   'coverImage': sliderType==='singleImageSlider' }"
-                         [@move]="state"
-                         (@move.done)="onFinish($event)"
-                         (@move.start)="onStart($event)"
-                         [attr.class]="i"
-                         [src]="projectImage.url"
-                         alt=""/>
+                    <div class="selectableImageContainer"
+                         (click)="selectImage(projectImage)">
+                        <img [ngClass]="{'selected': imageService.selectedImage===projectImage}"
+                             [@move]="state"
+                             (@move.done)="onFinish($event)"
+                             (@move.start)="onStart($event)"
+                             [attr.class]="i"
+                             [src]="projectImage.url"
+                             alt=""/>
+                    </div>
+
                 </ng-container>
             </div>
             <a class="slider-buttons" (click)="moveLeft()">&rsaquo;</a>
@@ -65,26 +63,25 @@ type SliderType = 'selectableSlider' | 'singleImageSlider';
             flex-wrap: wrap;
         }
 
-        .singleImageSlider {
+        img {
             max-width: 100%;
-            max-height: 100%
+            max-height: 100%;
+            border: 2px solid rgba(252, 252, 252, 0.2);
+            border-radius: 4px;
         }
 
-        img {
+        img:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
+
+        .selectableImageContainer {
+            cursor: pointer;
+            height: 45%;
             padding: 5px;
         }
 
-        .selectableImage {
-            cursor: pointer;
-            max-height: 45%;
-        }
-
-        .coverImage{
-            max-width: 100%;
-        }
-
         .selected {
-            border: 1px solid red;
+            border: 2px solid rgba(0, 140, 186, 0.5);
         }
     `],
     animations: [
@@ -109,18 +106,16 @@ type SliderType = 'selectableSlider' | 'singleImageSlider';
 })
 export class ImageSliderComponent implements OnInit {
 
-    @Input() sliderType: SliderType;
-
     public state = 'void';
     public disableSliderButtons = false;
 
     public images: ProjectImage[];
 
     constructor(public imageService: ImageService) {
-        this.images = [...imageService.images];
     }
 
     ngOnInit() {
+        this.images = [...this.imageService.images];
     }
 
     imageRotate(arr, reverse) {
@@ -155,10 +150,6 @@ export class ImageSliderComponent implements OnInit {
 
     onStart($event) {
         this.disableSliderButtons = true;
-    }
-
-    getImageCropper() {
-        return this.sliderType;
     }
 
     selectImage(projectImage: ProjectImage) {

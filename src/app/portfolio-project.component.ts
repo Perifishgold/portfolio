@@ -6,13 +6,12 @@ import {Component, Input, OnInit} from '@angular/core';
         <div class="projectGrid">
             <div class="cover">
                 <div class="coverImage">
-                    <app-image-slider class="singleImageSlider"
-                                      [sliderType]="'singleImageSlider'"></app-image-slider>
+<!--                    <app-image-slider class="singleImageSlider"></app-image-slider>-->
                 </div>
             </div>
             <div class="description"></div>
             <div class="images">
-                <app-image-slider [sliderType]="'selectableSlider'"></app-image-slider>
+                <app-image-slider></app-image-slider>
             </div>
         </div>
     `,
