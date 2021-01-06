@@ -2,17 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './components/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from "@angular/material/tabs";
-import { AboutComponent } from './about.component';
-import { PortfolioComponent } from './portfolio.component';
-import { ContactDetailsComponent } from './contact-details.component';
-import { HomeComponent } from './home.component';
-import { PortfolioProjectComponent } from './portfolio-project.component';
-import { FinalProjectComponent } from './final-project.component';
-import { ImageSliderComponent } from './image-slider.component';
-import { FeaturedComponent } from './featured.component';
+import { AboutComponent } from './components/about.component';
+import { PortfolioComponent } from './components/portfolio.component';
+import { ContactDetailsComponent } from './components/contact-details.component';
+import { HomeComponent } from './components/home.component';
+import { PortfolioProjectComponent } from './components/project/portfolio-project.component';
+import { FinalProjectComponent } from './components/final-project.component';
+import { ImageSliderComponent } from './components/project/image-slider.component';
+import { FeaturedComponent } from './components/project/featured.component';
+import { ProjectDescriptionComponent } from './components/project/project-description.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { FeaturedComponent } from './featured.component';
     FinalProjectComponent,
     ImageSliderComponent,
     FeaturedComponent,
+    ProjectDescriptionComponent,
   ],
   imports: [
     BrowserModule,
