@@ -1,46 +1,43 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {animate, style, state, transition, trigger} from "@angular/animations";
 import {ImageService, ProjectImage} from "./image.service";
 
-
-type SliderType = 'selectableSlider' | 'singleImageSlider';
 
 @Component({
     selector: 'app-image-slider',
     template: `
         <div dir="ltr" class="sliderContainer">
-            <div class="imageCropper" [ngClass]="getImageCropper()">
+            <a class="slider-buttons " (click)="moveRight()">&lsaquo;</a>
+            <div class="imageCropper selectableSlider">
                 <ng-container *ngFor="let projectImage of this.images; let i = index">
-                    <img (click)="selectImage(projectImage)"
-                         [ngClass]="{'selected': imageService.selectedImage===projectImage}"
-                         [@move]="state"
-                         (@move.done)="onFinish($event)"
-                         (@move.start)="onStart($event)"
-                         [attr.class]="i"
-                         [src]="projectImage.url"
-                         alt=""/>
+                    <div class="selectableImageContainer"
+                         (click)="selectImage(projectImage)"
+                         [ngClass]="{'selected': imageService.selectedImage===projectImage}">
+                        <img [@move]="state"
+                             (@move.done)="onFinish($event)"
+                             (@move.start)="onStart($event)"
+                             [attr.class]="i"
+                             [src]="projectImage.url"
+                             alt=""/>
+                    </div>
+
                 </ng-container>
             </div>
-            <div>
-                <a id="slider-buttons" class="slideRight" (click)="moveLeft()">&#10095;</a>
-                <a id="slider-buttons" class="slideLeft" (click)="moveRight()">&#10094;</a>
-            </div>
+            <a class="slider-buttons" (click)="moveLeft()">&rsaquo;</a>
         </div>
     `,
     styles: [`
         .sliderContainer {
             position: relative;
-            overflow: hidden;
             height: 100%;
         }
 
-        #slider-buttons {
-            position: absolute;
-            top: 50%;
+        .slider-buttons {
             z-index: 1000;
             cursor: pointer;
             font-size: 250%;
-            color: #ffffff;
+            color: #726868;
+            user-select: none;
         }
 
         .slideRight {
@@ -58,26 +55,33 @@ type SliderType = 'selectableSlider' | 'singleImageSlider';
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
+            overflow: hidden;
         }
 
         .selectableSlider {
-            height: 350px;
-        }
-
-        .singleImageSlider {
-            max-width: 100%;
-            max-height: 100%
+            height: 250px;
+            flex-wrap: wrap;
         }
 
         img {
             max-width: 100%;
-            max-height: 50%;
-            margin: 5px;
+            max-height: 100%;
+        }
+
+        .selectableImageContainer {
             cursor: pointer;
+            height: 45%;
+            margin: 5px;
+            border: 2px solid rgba(252, 252, 252, 0.2);
+            border-radius: 4px;
+        }
+
+        .selectableImageContainer:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
         }
 
         .selected {
-            border: 1px solid red;
+            border: 2px solid rgba(0, 140, 186, 0.5);
         }
     `],
     animations: [
@@ -102,18 +106,16 @@ type SliderType = 'selectableSlider' | 'singleImageSlider';
 })
 export class ImageSliderComponent implements OnInit {
 
-    @Input() sliderType: SliderType;
-
     public state = 'void';
     public disableSliderButtons = false;
 
     public images: ProjectImage[];
 
     constructor(public imageService: ImageService) {
-        this.images = [...imageService.images];
     }
 
     ngOnInit() {
+        this.images = [...this.imageService.images];
     }
 
     imageRotate(arr, reverse) {
@@ -148,10 +150,6 @@ export class ImageSliderComponent implements OnInit {
 
     onStart($event) {
         this.disableSliderButtons = true;
-    }
-
-    getImageCropper() {
-        return this.sliderType;
     }
 
     selectImage(projectImage: ProjectImage) {
