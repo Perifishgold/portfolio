@@ -6,14 +6,13 @@ import {ImageService, ProjectImage} from "./image.service";
 @Component({
     selector: 'app-image-slider',
     template: `
-        <div dir="ltr" class="imageCropper selectableSlider sliderContainer">
+        <div dir="ltr" class="imageCropper sliderContainer">
             <ng-container *ngFor="let projectImage of this.images; let i = index">
                 <div class="selectableImageContainer"
                      (click)="selectImage(projectImage)"
                      [ngClass]="{'selected': imageService.selectedImage===projectImage}">
                     <img [@move]="state"
                          (@move.done)="onFinish($event)"
-                         (@move.start)="onStart($event)"
                          [attr.class]="i"
                          [src]="projectImage.url"
                          alt=""/>
@@ -27,17 +26,25 @@ import {ImageService, ProjectImage} from "./image.service";
     `,
     styles: [`
         .sliderContainer {
+            height: 190px;
             position: relative;
-            height: 100%;
         }
-        
-        .arrows{
+
+        .imageCropper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            overflow: hidden;
+            flex-wrap: wrap;
+        }
+
+        .arrows {
             height: 100%;
         }
 
         .slider-buttons {
             position: absolute;
-            
+
             z-index: 1000;
             cursor: pointer;
             font-size: 250%;
@@ -51,12 +58,12 @@ import {ImageService, ProjectImage} from "./image.service";
             display: block;
             text-align: center;
         }
-        
-        .slider-buttons:hover{
+
+        .slider-buttons:hover {
             background-color: rgba(252, 252, 252, 0.8);
         }
 
-        .slideRight{
+        .slideRight {
             top: 68%;
             float: right;
             right: 0;
@@ -68,19 +75,6 @@ import {ImageService, ProjectImage} from "./image.service";
             left: 0;
         }
         
-        .imageCropper {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .selectableSlider {
-            height: 250px;
-            flex-wrap: wrap;
-        }
-
         img {
             max-width: 100%;
             max-height: 100%;
@@ -125,7 +119,6 @@ import {ImageService, ProjectImage} from "./image.service";
 export class ImageSliderComponent implements OnInit {
 
     public state = 'void';
-    public disableSliderButtons = false;
 
     public images: ProjectImage[];
 
@@ -146,28 +139,17 @@ export class ImageSliderComponent implements OnInit {
     }
 
     moveRight() {
-        if (this.disableSliderButtons) {
-            return;
-        }
         this.state = 'right';
         this.imageRotate(this.images, true);
     }
 
     moveLeft() {
-        if (this.disableSliderButtons) {
-            return;
-        }
         this.state = 'left';
         this.imageRotate(this.images, false);
     }
 
     onFinish($event) {
         this.state = 'void';
-        this.disableSliderButtons = false;
-    }
-
-    onStart($event) {
-        this.disableSliderButtons = true;
     }
 
     selectImage(projectImage: ProjectImage) {
