@@ -3,11 +3,9 @@ import {Injectable} from '@angular/core';
 
 export class ProjectImage {
     public url: string;
-    public isCover: boolean;
 
     constructor(url, isCover) {
         this.url = url;
-        this.isCover = isCover;
     }
 }
 
@@ -19,7 +17,7 @@ export class ImageService {
     private _featuredImage: ProjectImage;
     public _selectedImage: ProjectImage;
 
-    get selectedImage():ProjectImage{
+    get selectedImage(): ProjectImage {
         return this._selectedImage;
     }
 
@@ -39,9 +37,19 @@ export class ImageService {
         this._featuredImage = new ProjectImage(image, true)
     }
 
-    public select(projectImage: ProjectImage) {
+    select(projectImage: ProjectImage) {
         this._selectedImage = projectImage
         this._featuredImage = projectImage;
+    }
+
+    getNextFeatured() {
+        let featuredIndex = this._images.indexOf(this._featuredImage);
+        this._featuredImage = this._images[(featuredIndex + 1) % this._images.length]
+    }
+
+    getPreviousFeared() {
+        let featuredIndex = this._images.indexOf(this._featuredImage);
+        this._featuredImage = this._images[(this._images.length + featuredIndex - 1) % this._images.length]
     }
 
     constructor() {
