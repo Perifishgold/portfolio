@@ -6,24 +6,23 @@ import {ImageService, ProjectImage} from "./image.service";
 @Component({
     selector: 'app-image-slider',
     template: `
-        <div dir="ltr" class="sliderContainer">
-            <a class="slider-buttons " (click)="moveRight()">&lsaquo;</a>
-            <div class="imageCropper selectableSlider">
-                <ng-container *ngFor="let projectImage of this.images; let i = index">
-                    <div class="selectableImageContainer"
-                         (click)="selectImage(projectImage)"
-                         [ngClass]="{'selected': imageService.selectedImage===projectImage}">
-                        <img [@move]="state"
-                             (@move.done)="onFinish($event)"
-                             (@move.start)="onStart($event)"
-                             [attr.class]="i"
-                             [src]="projectImage.url"
-                             alt=""/>
-                    </div>
-
-                </ng-container>
+        <div dir="ltr" class="imageCropper selectableSlider sliderContainer">
+            <ng-container *ngFor="let projectImage of this.images; let i = index">
+                <div class="selectableImageContainer"
+                     (click)="selectImage(projectImage)"
+                     [ngClass]="{'selected': imageService.selectedImage===projectImage}">
+                    <img [@move]="state"
+                         (@move.done)="onFinish($event)"
+                         (@move.start)="onStart($event)"
+                         [attr.class]="i"
+                         [src]="projectImage.url"
+                         alt=""/>
+                </div>
+            </ng-container>
+            <div class="arrows">
+                <a class="slider-buttons slideRight" (click)="moveRight()">&rsaquo;</a>
+                <a class="slider-buttons slideLeft" (click)="moveLeft()">&lsaquo;</a>
             </div>
-            <a class="slider-buttons" (click)="moveLeft()">&rsaquo;</a>
         </div>
     `,
     styles: [`
@@ -31,29 +30,70 @@ import {ImageService, ProjectImage} from "./image.service";
             position: relative;
             height: 100%;
         }
+        
+        .arrows{
+            height: 100%;
+        }
 
         .slider-buttons {
+            position: absolute;
+            
             z-index: 1000;
             cursor: pointer;
             font-size: 250%;
             color: #726868;
             user-select: none;
+
+            background-color: rgba(252, 252, 252, 0.3);
+            border-radius: 50%;
+            width: 26px;
+            height: 27px;
+            display: block;
+            text-align: center;
+        }
+        
+        .slider-buttons:hover{
+            background-color: rgba(252, 252, 252, 0.8);
         }
 
-        .slideRight {
+        .slideRight{
+            top: 68%;
             float: right;
             right: 0;
         }
 
         .slideLeft {
+            top: 19%;
             float: left;
             left: 0;
+        }
+
+        .slider-buttons-left {
+            position: absolute;
+            z-index: 1000;
+            top: 130px;
+            float: left;
+            cursor: pointer;
+            font-size: 250%;
+            color: #778899;
+            left: 60px;
+        }
+
+        .slider-buttons-right {
+            position: absolute;
+            top: 130px;
+            z-index: 1000;
+            float: right;
+            cursor: pointer;
+            font-size: 250%;
+            color: #778899;
+            right: 60px;
         }
 
         .imageCropper {
             display: flex;
             flex-direction: row;
-            justify-content: flex-start;
+            justify-content: space-evenly;
             align-items: center;
             overflow: hidden;
         }
@@ -127,7 +167,7 @@ export class ImageSliderComponent implements OnInit {
         return arr;
     }
 
-    moveLeft() {
+    moveRight() {
         if (this.disableSliderButtons) {
             return;
         }
@@ -135,7 +175,7 @@ export class ImageSliderComponent implements OnInit {
         this.imageRotate(this.images, true);
     }
 
-    moveRight() {
+    moveLeft() {
         if (this.disableSliderButtons) {
             return;
         }
