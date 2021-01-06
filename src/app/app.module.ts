@@ -12,6 +12,7 @@ import { HomeComponent } from './home.component';
 import { PortfolioProjectComponent } from './portfolio-project.component';
 import { FinalProjectComponent } from './final-project.component';
 import { ImageSliderComponent } from './image-slider.component';
+import { FeaturedComponent } from './featured.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ImageSliderComponent } from './image-slider.component';
     PortfolioProjectComponent,
     FinalProjectComponent,
     ImageSliderComponent,
+    FeaturedComponent,
   ],
   imports: [
     BrowserModule,

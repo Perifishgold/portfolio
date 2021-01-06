@@ -16,14 +16,32 @@ export class ProjectImage {
 })
 export class ImageService {
     private _images: ProjectImage[];
-    public selectedImage: ProjectImage;
+    private _featuredImage: ProjectImage;
+    public _selectedImage: ProjectImage;
+
+    get selectedImage():ProjectImage{
+        return this._selectedImage;
+    }
+
+    get images(): ProjectImage[] {
+        return this._images;
+    }
 
     set projectImages(images: string[]) {
         this._images = images.map((image) => new ProjectImage(image, false));
     }
 
-    get images(): ProjectImage[] {
-        return this._images;
+    get featuredImage(): ProjectImage {
+        return this._featuredImage;
+    }
+
+    set coverImage(image: string) {
+        this._featuredImage = new ProjectImage(image, true)
+    }
+
+    public select(projectImage: ProjectImage) {
+        this._selectedImage = projectImage
+        this._featuredImage = projectImage;
     }
 
     constructor() {

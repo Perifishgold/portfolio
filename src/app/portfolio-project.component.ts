@@ -6,7 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
         <div class="projectGrid">
             <div class="cover">
                 <div class="coverImage">
-<!--                    <app-image-slider class="singleImageSlider"></app-image-slider>-->
+                    <app-featured></app-featured>
                 </div>
             </div>
             <div class="description"></div>
@@ -28,9 +28,6 @@ import {Component, Input, OnInit} from '@angular/core';
             align-content: center;
         }
 
-        .singleImageSlider {
-            height: 100%;
-        }
 
         .cover {
             grid-area: cover;

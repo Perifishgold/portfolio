@@ -67,29 +67,7 @@ import {ImageService, ProjectImage} from "./image.service";
             float: left;
             left: 0;
         }
-
-        .slider-buttons-left {
-            position: absolute;
-            z-index: 1000;
-            top: 130px;
-            float: left;
-            cursor: pointer;
-            font-size: 250%;
-            color: #778899;
-            left: 60px;
-        }
-
-        .slider-buttons-right {
-            position: absolute;
-            top: 130px;
-            z-index: 1000;
-            float: right;
-            cursor: pointer;
-            font-size: 250%;
-            color: #778899;
-            right: 60px;
-        }
-
+        
         .imageCropper {
             display: flex;
             flex-direction: row;
@@ -193,6 +171,6 @@ export class ImageSliderComponent implements OnInit {
     }
 
     selectImage(projectImage: ProjectImage) {
-        this.imageService.selectedImage = projectImage
+        this.imageService.select(projectImage);
     }
 }
