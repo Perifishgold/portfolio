@@ -3,9 +3,11 @@ import {Injectable} from '@angular/core';
 
 export class ProjectImage {
     public url: string;
+    public isCover: boolean;
 
     constructor(url, isCover) {
         this.url = url;
+        this.isCover = isCover;
     }
 }
 
@@ -15,7 +17,7 @@ export class ProjectImage {
 export class ImageService {
     private _images: ProjectImage[];
     private _featuredImage: ProjectImage;
-    public _selectedImage: ProjectImage;
+    private _selectedImage: ProjectImage;
 
     get selectedImage(): ProjectImage {
         return this._selectedImage;
