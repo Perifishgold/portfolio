@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {animate, style, state, transition, trigger} from "@angular/animations";
 import {ImageService, ProjectImage} from "./image.service";
 
@@ -11,9 +11,9 @@ import {ImageService, ProjectImage} from "./image.service";
             <div class="imageCropper selectableSlider">
                 <ng-container *ngFor="let projectImage of this.images; let i = index">
                     <div class="selectableImageContainer"
-                         (click)="selectImage(projectImage)">
-                        <img [ngClass]="{'selected': imageService.selectedImage===projectImage}"
-                             [@move]="state"
+                         (click)="selectImage(projectImage)"
+                         [ngClass]="{'selected': imageService.selectedImage===projectImage}">
+                        <img [@move]="state"
                              (@move.done)="onFinish($event)"
                              (@move.start)="onStart($event)"
                              [attr.class]="i"
@@ -66,18 +66,18 @@ import {ImageService, ProjectImage} from "./image.service";
         img {
             max-width: 100%;
             max-height: 100%;
-            border: 2px solid rgba(252, 252, 252, 0.2);
-            border-radius: 4px;
-        }
-
-        img:hover {
-            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
         }
 
         .selectableImageContainer {
             cursor: pointer;
             height: 45%;
-            padding: 5px;
+            margin: 5px;
+            border: 2px solid rgba(252, 252, 252, 0.2);
+            border-radius: 4px;
+        }
+
+        .selectableImageContainer:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
         }
 
         .selected {
