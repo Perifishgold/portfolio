@@ -14,6 +14,8 @@ import { FinalProjectComponent } from './components/final-project.component';
 import { ImageSliderComponent } from './components/project/image-slider.component';
 import { FeaturedComponent } from './components/project/featured.component';
 import { ProjectDescriptionComponent } from './components/project/project-description.component';
+import { PortfolioHeadlineComponent } from './components/anchors/portfolio-headline.component';
+import { PortfolioHeaderComponent } from './components/anchors/portfolio-header/portfolio-header.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { ProjectDescriptionComponent } from './components/project/project-descri
     ImageSliderComponent,
     FeaturedComponent,
     ProjectDescriptionComponent,
+    PortfolioHeadlineComponent,
+    PortfolioHeaderComponent,
   ],
   imports: [
     BrowserModule,

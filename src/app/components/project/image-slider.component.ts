@@ -7,46 +7,83 @@ import {ImageService, ProjectImage} from "../../services/image.service";
     selector: 'app-image-slider',
     template: `
         <div dir="ltr" class="sliderContainer">
-            <div class="imageCropper">
-                <ng-container *ngFor="let projectImage of this.images; let i = index">
-                    <div class="selectableImageContainer"
-                         (click)="selectImage(projectImage)"
-                         [ngClass]="{'selected': imageService.selectedImage===projectImage}">
-                        <img [@move]="state"
-                             (@move.done)="onFinish($event)"
-                             [attr.class]="i"
-                             [src]="projectImage.url"
-                             alt=""/>
-                    </div>
-                </ng-container>
+            <div class="imagesCropper">
+                <div class="imageCarousel">
+                    <ng-container *ngFor="let projectImage of this.images; let i = index">
+                        <div class="selectableImageContainer"
+                             (click)="selectImage(projectImage)"
+                             [ngClass]="{'selected': imageService.selectedImage===projectImage}"
+                             [@move]="state"
+                             (@move.done)="onFinish($event)">
+                            <img [attr.class]="i"
+                                 [src]="projectImage.url"
+                                 alt=""/>
+                        </div>
+                    </ng-container>
+                </div>
             </div>
             <div class="arrows">
-                <a class="slider-buttons circularButton slideRight" (click)="moveRight()">&rsaquo;</a>
                 <a class="slider-buttons circularButton slideLeft" (click)="moveLeft()">&lsaquo;</a>
+                <a class="slider-buttons circularButton slideRight" (click)="moveRight()">&rsaquo;</a>
             </div>
         </div>
+
     `,
     styles: [`
         .sliderContainer {
             position: relative;
-        }
-
-        .imageCropper {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            overflow: hidden;
-            flex-wrap: wrap;
-            height: 190px;
-        }
-
-        .arrows {
             height: 100%;
         }
 
-        .slider-buttons {
+        .imagesCropper {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .imageCarousel {
+            width: 1000px;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .selectableImageContainer {
+            cursor: pointer;
+            margin: 0 0.5%;
+            opacity: 70%;
+            z-index: 1;
+            /*height: 45%;*/
+            /*border: 2px solid rgba(252, 252, 252, 0.2);*/
+            /*border-radius: 4px;*/
+        }
+
+        .selectableImageContainer:hover {
+            /*box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);*/
+            opacity: 100%;
+        }
+
+        .selected {
+            /*border: 2px solid rgba(0, 140, 186, 0.5);*/
+            opacity: 100%;
+        }
+
+        .arrows {
             position: absolute;
-            top: 44%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            align-items: center;
+        }
+
+        .slider-buttons {
             z-index: 1000;
             cursor: pointer;
             font-size: 577%;
@@ -59,7 +96,6 @@ import {ImageService, ProjectImage} from "../../services/image.service";
             border-radius: 50%;
             width: 40px;
             height: 40px;
-            display: block;
             text-align: center;
             line-height: 27px;
         }
@@ -78,26 +114,6 @@ import {ImageService, ProjectImage} from "../../services/image.service";
             left: 0;
         }
 
-        img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-
-        .selectableImageContainer {
-            cursor: pointer;
-            height: 45%;
-            margin: 0.5% auto;
-            border: 2px solid rgba(252, 252, 252, 0.2);
-            border-radius: 4px;
-        }
-
-        .selectableImageContainer:hover {
-            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-        }
-
-        .selected {
-            border: 2px solid rgba(0, 140, 186, 0.5);
-        }
     `],
     animations: [
         trigger('move', [

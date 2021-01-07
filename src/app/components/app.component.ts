@@ -4,30 +4,33 @@ import {Router} from "@angular/router";
 @Component({
     selector: 'app-root',
     template: `
-        <div class="container">
+        <div class="portfolioFlexContainer">
             <div class="projectsNavigation">
-                <nav mat-tab-nav-bar>
-                    <a mat-tab-link
-                       *ngFor="let link of routeLinks"
-                       [routerLink]="link.link"
-                       routerLinkActive #rla="routerLinkActive"
-                       [active]="rla.isActive">{{link.label}}
-                    </a>
-                </nav>
+                <a *ngIf="this.activeLinkIndex!==0" routerLink="/home" routerLinkActive="active">
+                    <app-portfolio-headline
+                            [minimized]="true"
+                            class="homePageLink">
+                    </app-portfolio-headline>
+                </a>
+                <div class="projectTabs">
+                    <ng-container *ngFor="let project of this.routeLinks; let i = index">
+                        <div class="projectTab">{{project.label}}</div>
+                    </ng-container>
+                </div>
                 <router-outlet></router-outlet>
             </div>
             <div class="generalNavigation">
                 <div class="tabs verticalLine">
-                    <h3 class="tab rotate">קורות חיים</h3>
-                    <h3 class="tab rotate">ART</h3>
-                    <h3 class="tab rotate">צור קשר</h3>
+                    <div class="tab rotate">קורות חיים</div>
+                    <div class="tab rotate">ART</div>
+                    <div class="tab rotate">צור קשר</div>
                 </div>
             </div>
         </div>
     `,
     styles: [`
-        .container {
-            background: url("../../assets/img/background.jpeg") no-repeat;
+        .portfolioFlexContainer {
+            background: rgba(252, 252, 252, 0.5) url("../../assets/img/background2.jpg") no-repeat;
             background-size: cover;
             height: 100%;
 
@@ -37,10 +40,32 @@ import {Router} from "@angular/router";
             align-items: center;
         }
 
+        .homePageLink {
+            position: absolute;
+            left: 8%;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
+        }
+
+        .homePageLink:hover {
+            transform: scale(1.025);
+        }
+
         .projectsNavigation {
             padding-top: 5%;
             flex-grow: 1;
             height: 100%;
+        }
+
+        .projectTabs {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .projectTab {
+            margin: 2% 4%;
         }
 
         .generalNavigation {
@@ -77,16 +102,6 @@ import {Router} from "@angular/router";
             width: 68px;
             cursor: pointer;
         }
-        
-        @font-face {
-            font-family: Agency FB;
-            src: url(../../assets/font/AGENCYR.TTF) format("truetype");
-        }
-
-        @font-face {
-            font-family: Lupa Pinky;
-            src: url('../../assets/font/BN Pinky.ttf') format("truetype");
-        }
     `]
 })
 export class AppComponent implements OnInit {
@@ -96,17 +111,22 @@ export class AppComponent implements OnInit {
     constructor(private router: Router) {
         this.routeLinks = [
             {
+                label: 'home',
+                link: './home',
+                index: 0
+            },
+            {
                 label: '2020',
                 link: './final-project',
-                index: 0
+                index: 1
             }, {
                 label: '2019',
                 link: './portfolio',
-                index: 1
+                index: 2
             }, {
                 label: '2018',
                 link: './contactDetails',
-                index: 2
+                index: 3
             }
         ];
     }
