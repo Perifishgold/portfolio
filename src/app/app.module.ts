@@ -15,7 +15,7 @@ import { ImageSliderComponent } from './components/project/image-slider.componen
 import { FeaturedComponent } from './components/project/featured.component';
 import { ProjectDescriptionComponent } from './components/project/project-description.component';
 import { PortfolioHeadlineComponent } from './components/anchors/portfolio-headline.component';
-import { PortfolioHeaderComponent } from './components/anchors/portfolio-header/portfolio-header.component';
+import { PortfolioHeaderComponent } from './components/anchors/portfolio-header.component';
 
 
 @NgModule({
