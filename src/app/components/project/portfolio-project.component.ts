@@ -21,7 +21,7 @@ import {Component, Input, OnInit} from '@angular/core';
         .projectGrid {
             display: grid;
             grid-template-columns: repeat(2, minmax(250px, 1fr));
-            grid-template-rows: 2fr 1fr;
+            grid-template-rows: 1fr 1fr;
             grid-column-gap: 3%;
             grid-row-gap: 3%;
             grid-template-areas: "cover description" "cover images";
@@ -40,6 +40,7 @@ import {Component, Input, OnInit} from '@angular/core';
 
         .description {
             grid-area: description;
+            position: relative;
         }
 
         .images {

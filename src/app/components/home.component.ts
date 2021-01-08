@@ -8,6 +8,10 @@ import {Component, OnInit} from '@angular/core';
         </div>
     `,
     styles: [`
+        :host {
+            flex: 1;
+        }
+        
         .homeContainer {
             position: relative;
             height: 100%;
@@ -16,7 +20,7 @@ import {Component, OnInit} from '@angular/core';
         .headline {
             display: inline-block;
             position: absolute;
-            top: 33%;
+            top: 38%;
             left: 3%;
         }
     `]

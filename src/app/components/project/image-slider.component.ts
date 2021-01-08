@@ -32,19 +32,16 @@ import {ImageService, ProjectImage} from "../../services/image.service";
     styles: [`
         .sliderContainer {
             position: relative;
-            height: 100%;
         }
 
         .imagesCropper {
             overflow: hidden;
-            height: 100%;
         }
 
         .imageCarousel {
             width: 1800px;
             display: flex;
             align-items: center;
-            height: 100%;
         }
 
         img {
