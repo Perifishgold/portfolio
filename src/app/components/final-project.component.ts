@@ -4,9 +4,13 @@ import {ImageService} from "../services/image.service";
 @Component({
     selector: 'app-final-project',
     template: `
-        <app-portfolio-project></app-portfolio-project>
+        <app-portfolio-project class></app-portfolio-project>
     `,
-    styles: [],
+    styles: [`
+        :host {
+            flex: 1;
+        }
+    `],
     providers: [ImageService]
 })
 export class FinalProjectComponent implements OnInit {

@@ -5,11 +5,17 @@ import {Router} from "@angular/router";
     selector: 'app-root',
     template: `
         <div class="portfolioFlexContainer">
-            <div class="content">
+            <div class="mainContent">
                 <app-portfolio-header class="projectsNavigation"></app-portfolio-header>
                 <router-outlet></router-outlet>
             </div>
             <div class="generalNavigation">
+                <a class="homePageLink" *ngIf="!isHomePage()" routerLink="/home" routerLinkActive="active">
+                    <app-portfolio-headline
+                            [minimized]="true"
+                            class="homePage">
+                    </app-portfolio-headline>
+                </a>
                 <div class="tabs verticalLine">
                     <div class="tab rotate">קורות חיים</div>
                     <div class="tab rotate">ART</div>
@@ -30,13 +36,32 @@ import {Router} from "@angular/router";
             align-items: center;
         }
 
-        .content {
+        .mainContent {
+            height: 100%;
             flex-grow: 1;
+            margin-right: 10%;
+            margin-top: 3%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .homePageLink {
+            position: absolute;
+            top: 3%;
+        }
+
+        .homePage {
+            position: absolute;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
+        }
+
+        .homePage:hover {
+            transform: scale(1.025);
         }
 
         .projectsNavigation {
-            padding-top: 5%;
-            height: 100%;
         }
 
         .generalNavigation {
@@ -66,8 +91,8 @@ import {Router} from "@angular/router";
         .tab {
             text-align: center;
             font-size: 18px;
-            font-family: NarkisBlockCondensedMF, serif;
-            letter-spacing: 0;
+            font-family: Lupa Pinky, serif;
+            letter-spacing: 2px;
             color: #000000;
             opacity: 1;
             width: 68px;
@@ -101,6 +126,10 @@ export class AppComponent implements OnInit {
                 index: 3
             }
         ];
+    }
+
+    isHomePage() {
+        return this.router.url === '/home'
     }
 
     ngOnInit(): void {

@@ -5,12 +5,6 @@ import {Router} from "@angular/router";
     selector: 'app-portfolio-header',
     template: `
         <div class="projectsNavigation">
-            <a *ngIf="!isHomePage()" routerLink="/home" routerLinkActive="active">
-                <app-portfolio-headline
-                        [minimized]="true"
-                        class="homePageLink">
-                </app-portfolio-headline>
-            </a>
             <div class="projectTabs">
                 <ng-container *ngFor="let project of this.projectLinks; let i = index">
                     <a class="projectTab" [routerLink]="project.link" routerLinkActive="active">
@@ -22,33 +16,25 @@ import {Router} from "@angular/router";
         </div>
     `,
     styles: [`
-        .homePageLink {
-            position: absolute;
-            left: 8%;
-            cursor: pointer;
-            user-select: none;
-            transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
-        }
-
-        .homePageLink:hover {
-            transform: scale(1.025);
-        }
 
         .projectsNavigation {
-            height: 100%;
         }
 
         .projectTabs {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
-            margin-right: 10%;
             align-items: flex-end;
         }
 
         .projectTab {
             margin-left: 3%;
             user-select: none;
+            transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
+        }
+
+        .projectTab:hover {
+            transform: scale(1.025);
         }
 
         .topLabel {
@@ -126,10 +112,6 @@ export class PortfolioHeaderComponent implements OnInit {
                 index: 5
             }
         ];
-    }
-
-    isHomePage() {
-        return this.router.url === '/home'
     }
 
     ngOnInit(): void {

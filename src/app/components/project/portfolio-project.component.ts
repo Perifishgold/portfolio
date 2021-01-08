@@ -25,8 +25,7 @@ import {Component, Input, OnInit} from '@angular/core';
             grid-column-gap: 3%;
             grid-row-gap: 3%;
             grid-template-areas: "cover description" "cover images";
-            height: 75%;
-            margin: 0 10%;
+            height: 100%;
             align-content: center;
         }
 

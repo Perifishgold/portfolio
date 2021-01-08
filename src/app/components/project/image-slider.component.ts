@@ -41,7 +41,7 @@ import {ImageService, ProjectImage} from "../../services/image.service";
         }
 
         .imageCarousel {
-            width: 1000px;
+            width: 1800px;
             display: flex;
             align-items: center;
             height: 100%;
@@ -55,7 +55,7 @@ import {ImageService, ProjectImage} from "../../services/image.service";
         .selectableImageContainer {
             cursor: pointer;
             margin: 0 0.5%;
-            opacity: 70%;
+            opacity: 50%;
             z-index: 1;
             /*height: 45%;*/
             /*border: 2px solid rgba(252, 252, 252, 0.2);*/
