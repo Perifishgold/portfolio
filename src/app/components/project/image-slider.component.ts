@@ -51,7 +51,7 @@ import {ImageService, ProjectImage} from "../../services/image.service";
             z-index: 1;
 
             position: relative;
-            width: 7%;
+            width: 6%;
             overflow: hidden;
             background-color: rgb(102, 102, 102);
         }
