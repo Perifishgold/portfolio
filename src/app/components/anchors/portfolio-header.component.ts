@@ -16,6 +16,9 @@ import {Router} from "@angular/router";
         </div>
     `,
     styles: [`
+        a {
+            text-decoration: none;
+        }
 
         .projectsNavigation {
         }
@@ -31,6 +34,7 @@ import {Router} from "@angular/router";
             margin-left: 3%;
             user-select: none;
             transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
+
         }
 
         .projectTab:hover {
@@ -47,6 +51,10 @@ import {Router} from "@angular/router";
             display: contents;
         }
 
+        .active .topLabel {
+            color: #B35656;
+        }
+
         .bottomLabel {
             display: inline-block;
             font-size: 20px;
@@ -59,6 +67,10 @@ import {Router} from "@angular/router";
             margin-right: 5px;
         }
 
+        .active .bottomLabel {
+            color: #B35656;
+        }
+
         .primary {
             font-size: 44px;
             line-height: 15px;
@@ -67,10 +79,6 @@ import {Router} from "@angular/router";
         .secondary {
             font-size: 28px;
             line-height: 12px;
-        }
-
-        .active {
-            color: #B35656;
         }
     `]
 })
