@@ -1,16 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import {ImageService} from "../../services/image.service";
-import {animate, style, transition, trigger} from "@angular/animations";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
     selector: 'app-featured',
     template: `
         <div dir="ltr" class="featuredImageContainer">
-            <img class="featuredImage" @carouselAnimation [src]="imageService.featuredImage.url" alt=""/>
+            <img class="featuredImage"
+                 [@carouselAnimation]="this.state"
+                 (@carouselAnimation.done)="onFinish($event)"
+                 [src]="imageService.featuredImage.url"
+                 alt=""/>
             <p dir="rtl">lalalalalalalalalalalalalalala</p>
             <div class="arrows">
-                <a class="slider-buttons slideRight" (click)="imageService.getNextFeatured()">&rsaquo;</a>
-                <a class="slider-buttons slideLeft" (click)="imageService.getPreviousFeared()">&lsaquo;</a>
+                <a class="slider-buttons slideRight" (click)="this.changeFeature(1)">&rsaquo;</a>
+                <a class="slider-buttons slideLeft" (click)="this.changeFeature(-1)">&lsaquo;</a>
             </div>
         </div>
     `,
@@ -66,19 +70,43 @@ import {animate, style, transition, trigger} from "@angular/animations";
     `],
     animations: [
         trigger('carouselAnimation', [
-            transition('void => *', [
-                style({opacity: 0}),
-                animate('300ms', style({opacity: 1}))
-            ]),
-            transition('* => void', [
-                animate('300ms', style({opacity: 0}))
+            state('in', style({'opacity': '1'})),
+            state('out', style({'opacity': '0'})),
+            transition('* <=> *', [
+                animate(300)
             ])
         ])
     ]
 })
 export class FeaturedComponent implements OnInit {
+    public state = 'in';
+    moveDirection: number;
 
     constructor(public imageService: ImageService) {
+    }
+
+    changeFeature(direction: number): void {
+        this.moveDirection = direction;
+        this.toggleState();
+    }
+
+    private changeImage() {
+        if (this.moveDirection === 1) {
+            this.imageService.getNextFeatured();
+        } else if (this.moveDirection === -1) {
+            this.imageService.getPreviousFeared();
+        }
+    }
+
+    onFinish($event) {
+        if (this.state === 'out') {
+            this.changeImage();
+            this.state = 'in';
+        }
+    }
+
+    toggleState() {
+        this.state = this.state === 'in' ? 'out' : 'in';
     }
 
     ngOnInit(): void {
