@@ -4,7 +4,7 @@ import {ImageService} from "../services/image.service";
 @Component({
     selector: 'app-final-project',
     template: `
-        <app-portfolio-project class></app-portfolio-project>
+        <app-portfolio-project></app-portfolio-project>
     `,
     styles: [`
         :host {

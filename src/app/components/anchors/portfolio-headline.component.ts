@@ -21,6 +21,7 @@ import {Component, Input, OnInit} from '@angular/core';
     styles: [`
         .headline {
             display: inline-block;
+            user-select: none;
         }
 
         .textRight {

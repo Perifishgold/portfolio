@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 
-
 export class ProjectImage {
     public url: string;
     public isCover: boolean;
