@@ -23,8 +23,8 @@ import {ImageService, ProjectImage} from "../../services/image.service";
                 </div>
             </div>
             <div class="arrows">
-                <a class="slider-buttons circularButton slideLeft" (click)="moveLeft()">&lsaquo;</a>
-                <a class="slider-buttons circularButton slideRight" (click)="moveRight()">&rsaquo;</a>
+                <a class="slider-buttons slideLeft" (click)="moveLeft()">&lsaquo;</a>
+                <a class="slider-buttons slideRight" (click)="moveRight()">&rsaquo;</a>
             </div>
         </div>
 
@@ -44,29 +44,38 @@ import {ImageService, ProjectImage} from "../../services/image.service";
             align-items: center;
         }
 
-        img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-
         .selectableImageContainer {
             cursor: pointer;
             margin: 0 0.5%;
             opacity: 50%;
             z-index: 1;
-            /*height: 45%;*/
-            /*border: 2px solid rgba(252, 252, 252, 0.2);*/
-            /*border-radius: 4px;*/
+
+            position: relative;
+            width: 7%;
+            overflow: hidden;
+            background-color: rgb(102, 102, 102);
+        }
+
+        .selectableImageContainer:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
         }
 
         .selectableImageContainer:hover {
-            /*box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);*/
             opacity: 100%;
+            background-color: rgba(102, 102, 102, 0.5);
         }
 
         .selected {
-            /*border: 2px solid rgba(0, 140, 186, 0.5);*/
             opacity: 100%;
+            background-color: rgba(102, 102, 102, 0.5);
+        }
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
         }
 
         .arrows {
@@ -83,22 +92,13 @@ import {ImageService, ProjectImage} from "../../services/image.service";
         .slider-buttons {
             z-index: 1000;
             cursor: pointer;
-            font-size: 577%;
+            font-size: 430%;
             color: #726868;
             user-select: none;
         }
 
-        .circularButton {
-            background-color: rgba(252, 252, 252, 0.3);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            text-align: center;
-            line-height: 27px;
-        }
-
-        .circularButton:hover {
-            background-color: rgba(252, 252, 252, 0.8);
+        .slider-buttons:hover {
+            color: #B35656;
         }
 
         .slideRight {

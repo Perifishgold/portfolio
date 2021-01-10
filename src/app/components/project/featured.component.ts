@@ -41,7 +41,7 @@ import {animate, style, transition, trigger} from "@angular/animations";
             z-index: 1000;
             cursor: pointer;
             font-size: 250%;
-            color: rgba(252, 252, 252, 0);
+            color: rgba(252, 252, 252, 0.5);
             user-select: none;
         }
 
