@@ -52,7 +52,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
             transform: scale(1.025);
         }
 
-        .fullScreen .featuredImage{
+        .fullScreen .featuredImage {
             cursor: auto;
             transition: none;
         }
@@ -85,7 +85,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
             left: 0;
         }
 
-        .fullScreen .slider-buttons{
+        .fullScreen .slider-buttons {
             font-size: 500%;
         }
 
@@ -96,16 +96,30 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     `],
     animations: [
         trigger('carouselAnimation', [
-            transition('out => in', [
+            transition('in => right', [
                 animate(
                     "200ms cubic-bezier(0.785, 0.135, 0.15, 0.86)",
-                    style({opacity: 1, transform: "scale(1)"})
+                    style({opacity: 0, transform: 'translateX(10%)'})
                 )
             ]),
-            transition('in => out', [
+            transition('right => in', [
+                style({opacity: 0, transform: 'translateX(-10%)'}),
                 animate(
                     "200ms cubic-bezier(0.785, 0.135, 0.15, 0.86)",
-                    style({opacity: 0, transform: "scale(0.8)"})
+                    style({opacity: 1, transform: 'translateX(0)'})
+                )
+            ]),
+            transition('in => left', [
+                animate(
+                    "200ms cubic-bezier(0.785, 0.135, 0.15, 0.86)",
+                    style({opacity: 0, transform: 'translateX(-10%)'})
+                )
+            ]),
+            transition('left => in', [
+                style({opacity: 0, transform: 'translateX(10%)'}),
+                animate(
+                    "200ms cubic-bezier(0.785, 0.135, 0.15, 0.86)",
+                    style({opacity: 1, transform: 'translateX(0)'})
                 )
             ])
         ])
@@ -124,7 +138,12 @@ export class FeaturedComponent implements AfterViewInit {
 
     changeFeature(direction: number): void {
         this.moveDirection = direction;
-        this.state = 'out';
+        if (direction === 1) {
+            this.state = 'right';
+        } else if (direction === -1) {
+            this.state = 'left';
+        }
+
     }
 
     private changeImage() {
@@ -136,7 +155,7 @@ export class FeaturedComponent implements AfterViewInit {
     }
 
     onFinish($event) {
-        if (this.state === 'out') {
+        if (this.state !== 'in') {
             this.changeImage();
             this.state = 'in';
         }
