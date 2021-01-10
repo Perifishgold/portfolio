@@ -70,10 +70,17 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     `],
     animations: [
         trigger('carouselAnimation', [
-            state('in', style({'opacity': '1'})),
-            state('out', style({'opacity': '0'})),
-            transition('* <=> *', [
-                animate(300)
+            transition('out => in', [
+                animate(
+                    "200ms cubic-bezier(0.785, 0.135, 0.15, 0.86)",
+                    style({opacity: 1, transform: "scale(1)"})
+                )
+            ]),
+            transition('in => out', [
+                animate(
+                    "200ms cubic-bezier(0.785, 0.135, 0.15, 0.86)",
+                    style({opacity: 0, transform: "scale(0.8)"})
+                )
             ])
         ])
     ]
@@ -87,7 +94,7 @@ export class FeaturedComponent implements OnInit {
 
     changeFeature(direction: number): void {
         this.moveDirection = direction;
-        this.toggleState();
+        this.state = 'out';
     }
 
     private changeImage() {
@@ -103,10 +110,6 @@ export class FeaturedComponent implements OnInit {
             this.changeImage();
             this.state = 'in';
         }
-    }
-
-    toggleState() {
-        this.state = this.state === 'in' ? 'out' : 'in';
     }
 
     ngOnInit(): void {
