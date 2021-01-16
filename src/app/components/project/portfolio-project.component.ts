@@ -29,7 +29,6 @@ import {Component, Input, OnInit} from '@angular/core';
             align-content: center;
         }
 
-
         .cover {
             grid-area: cover;
         }

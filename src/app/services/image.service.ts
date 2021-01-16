@@ -35,7 +35,7 @@ export class ImageService {
     }
 
     set coverImage(image: string) {
-        this._featuredImage = new ProjectImage(image, true)
+        this._featuredImage = this._images.find((projectImage) => projectImage.url === image);
     }
 
     select(projectImage: ProjectImage) {

@@ -9,7 +9,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
              class="featuredImageContainer"
              [ngClass]="{fullScreen:isFullScreen}">
             <img class="featuredImage"
-                 (click)="openInFullScreen()"
+                 (click)="toggleFullScreen()"
                  [@carouselAnimation]="this.state"
                  (@carouselAnimation.done)="onFinish($event)"
                  [src]="imageService.featuredImage.url"
@@ -31,7 +31,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
         }
 
         .fullScreen {
-            background-color: rgb(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.6);
             position: absolute;
             height: 100vh;
             width: 100vw;
@@ -161,8 +161,8 @@ export class FeaturedComponent implements AfterViewInit {
         }
     }
 
-    openInFullScreen() {
-        this.isFullScreen = true;
+    toggleFullScreen() {
+        this.isFullScreen = !this.isFullScreen;
     }
 
     @HostListener('document:keydown.escape')
