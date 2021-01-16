@@ -103,19 +103,19 @@ export class PortfolioHeaderComponent implements OnInit {
             }, {
                 topLabel: '2018',
                 bottomLabel: 'שנה ג',
-                link: './contactDetails',
+                link: './third-year-projects',
                 type: 'secondary',
                 index: 3
             }, {
                 topLabel: '2017',
                 bottomLabel: 'שנה ב',
-                link: './contactDetails',
+                link: './second-year-projects',
                 type: 'secondary',
                 index: 4
             }, {
                 topLabel: '2016',
                 bottomLabel: 'שנה א',
-                link: './contactDetails',
+                link: './first-year-projects',
                 type: 'secondary',
                 index: 5
             }

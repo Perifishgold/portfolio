@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "project-selection-view": {
+        "primary-headline": "סטודיו מגורים",
+        "secondary-headline": "כ-100 יח״מ בשכונת נווה אביבים, תל אביב"
+      }
+    },
+    {
+      "project-selection-view": {
+        "primary-headline": "סטודיו אורבני",
+        "secondary-headline": "שכונת מנשייה, תל אביב"
+      }
+    },
+    {
+      "project-selection-view": {
+        "primary-headline": "סטודיו טכנולוגי 1",
+        "secondary-headline": "בקתה למטיילים במכתש רמון"
+      }
+    }
+  ]
+}
