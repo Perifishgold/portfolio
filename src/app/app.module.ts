@@ -16,6 +16,8 @@ import { FeaturedComponent } from './components/project/featured.component';
 import { ProjectDescriptionComponent } from './components/project/project-description.component';
 import { PortfolioHeadlineComponent } from './components/anchors/portfolio-headline.component';
 import { PortfolioHeaderComponent } from './components/anchors/portfolio-header.component';
+import { ProjectSelectionViewComponent } from './components/project/project-selection-view.component';
+import { FourthYearProjectsComponent } from './components/fourth-year-projects.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { PortfolioHeaderComponent } from './components/anchors/portfolio-header.
     ProjectDescriptionComponent,
     PortfolioHeadlineComponent,
     PortfolioHeaderComponent,
+    ProjectSelectionViewComponent,
+    FourthYearProjectsComponent,
   ],
   imports: [
     BrowserModule,

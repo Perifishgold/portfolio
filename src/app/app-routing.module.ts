@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {PortfolioComponent} from "./components/portfolio.component";
 import {ContactDetailsComponent} from "./components/contact-details.component";
 import {HomeComponent} from "./components/home.component";
 import {FinalProjectComponent} from "./components/final-project.component";
+import {FourthYearProjectsComponent} from "./components/fourth-year-projects.component";
 
 const routes: Routes = [
   {
@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   { path: 'home', component: HomeComponent },
   { path: 'final-project', component: FinalProjectComponent },
-  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'fourth-year-projects', component: FourthYearProjectsComponent },
   { path: 'contactDetails', component: ContactDetailsComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];

@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "project-selection-view": {
+        "primary-headline": "סטודיו נוף",
+        "secondary-headline": "תכנון נופי לצ תעשיה בשכ׳ תלפיות, ירושלים"
+      }
+    },
+    {
+      "project-selection-view": {
+        "primary-headline": "סטודיו עיצוב פנים",
+        "secondary-headline": "מגורים לסטודנטים בתל אביב"
+      }
+    },
+    {
+      "project-selection-view": {
+        "primary-headline": "סטודיו טכנולוגי 2",
+        "secondary-headline": "מבנה עירוני קטן ופריק"
+      }
+    },
+    {
+      "project-selection-view": {
+        "primary-headline": "סטודיו מורכב",
+        "secondary-headline": "שדה תעופה בהונג קונג 2050"
+      }
+    }
+  ]
+}

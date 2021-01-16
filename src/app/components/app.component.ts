@@ -118,7 +118,7 @@ export class AppComponent implements OnInit {
                 index: 1
             }, {
                 label: '2019',
-                link: './portfolio',
+                link: './fourth-year-projects',
                 index: 2
             }, {
                 label: '2018',

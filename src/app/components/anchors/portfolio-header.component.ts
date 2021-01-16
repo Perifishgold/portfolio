@@ -97,7 +97,7 @@ export class PortfolioHeaderComponent implements OnInit {
             }, {
                 topLabel: '2019',
                 bottomLabel: 'שנה ד',
-                link: './portfolio',
+                link: './fourth-year-projects',
                 type: 'secondary',
                 index: 2
             }, {
