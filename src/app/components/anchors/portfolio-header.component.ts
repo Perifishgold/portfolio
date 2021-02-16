@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
         <div class="projectsNavigation">
             <div class="projectTabs">
                 <ng-container *ngFor="let project of this.projectLinks; let i = index">
-                    <a class="projectTab" [routerLink]="project.link" routerLinkActive="active">
+                    <a appZoomInHover class="projectTab" [routerLink]="project.link" routerLinkActive="active">
                         <div class="topLabel" [ngClass]="project.type">{{project.topLabel}}</div>
                         <div class="bottomLabel">{{project.bottomLabel}}</div>
                     </a>
@@ -33,12 +33,6 @@ import {Router} from "@angular/router";
         .projectTab {
             margin-left: 3%;
             user-select: none;
-            transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
-
-        }
-
-        .projectTab:hover {
-            transform: scale(1.025);
         }
 
         .topLabel {

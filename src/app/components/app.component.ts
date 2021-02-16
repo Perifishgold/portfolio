@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
             <div class="generalNavigation">
                 <a class="homePageLink" *ngIf="!isHomePage()" routerLink="/home" routerLinkActive="active">
                     <app-portfolio-headline
+                            appZoomInHover
                             [minimized]="true"
                             class="homePage">
                     </app-portfolio-headline>
@@ -54,11 +55,6 @@ import {Router} from "@angular/router";
             position: absolute;
             cursor: pointer;
             user-select: none;
-            transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
-        }
-
-        .homePage:hover {
-            transform: scale(1.025);
         }
 
         .projectsNavigation {

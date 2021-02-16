@@ -8,7 +8,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
         <div dir="ltr" #featuredImageContainer
              class="featuredImageContainer"
              [ngClass]="{fullScreen:isFullScreen}">
-            <img class="featuredImage"
+            <img appZoomInHover class="featuredImage"
                  (click)="toggleFullScreen()"
                  [@carouselAnimation]="this.state"
                  (@carouselAnimation.done)="onFinish($event)"
@@ -43,15 +43,10 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
         .featuredImage {
             max-height: 100%;
             max-width: 100%;
-            transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
             position: absolute;
             cursor: pointer;
         }
-
-        .featuredImage:hover {
-            transform: scale(1.025);
-        }
-
+        
         .fullScreen .featuredImage {
             cursor: auto;
             transition: none;
