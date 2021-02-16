@@ -1,18 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ProjectDataProviderService} from "../../services/project-data-provider.service";
 
 @Component({
     selector: 'app-project-description',
     template: `
         <div class="descriptionContainer">
-            <h1>פרויקט גמר</h1>
-            <span>בהנחיית אד' מוטי בודק</span>
-            <h2>תכנון נופי אורבני לצד תעשייה קלה בשכונת טלפיות בי-ם</h2>
-            <p>הפרוייקט עוסק בבחינת אתר שדה התעופה באילת, שהוקם יחד עם העיר בשנות ה50, שלאחרונה נסגר ובמקומו הוקם שדה"ע
-                רמון, כ 20 ק"מ מחוץ לעיר.
-                התכנון מבקש לקשור בין המרקמים העירוניים והאנושיים הנקטעים בשטחו העצום של השדה שיוצר סיטואציה עירונית
-                חריגה, כזו שנוצרת הפרדה, בכל תחומי החיים, בין העיר אילת לעיר התיירותית. שלב המחקר וניתוח האתר התמקד
-                בחיפוש אחר אופיה ומאפייניה הייחודיים של העיר, כעיר קצה-ים–מדבר ונופש בהיבטים האדריכליים, הגאוגרפיים
-                והאנושיים.</p>
+            <h1>{{this.projectDataProviderService.projectDescription["headline"]}}</h1>
+            <span>{{this.projectDataProviderService.projectDescription["headline-note"]}}</span>
+            <h2>{{this.projectDataProviderService.projectDescription["secondary-headline"]}}</h2>
+            <p>{{this.projectDataProviderService.projectDescription["full-description"]}}</p>
         </div>
     `,
     styles: [`
@@ -74,7 +70,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ProjectDescriptionComponent implements OnInit {
 
-    constructor() {
+    constructor(public projectDataProviderService: ProjectDataProviderService) {
     }
 
     ngOnInit(): void {

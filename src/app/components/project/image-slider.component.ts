@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, style, state, transition, trigger} from "@angular/animations";
-import {ImageService, ProjectImage} from "../../services/image.service";
+import {ProjectDataProviderService, ProjectImage} from "../../services/project-data-provider.service";
 
 
 @Component({
@@ -138,7 +138,7 @@ export class ImageSliderComponent implements OnInit {
 
     public images: ProjectImage[];
 
-    constructor(public imageService: ImageService) {
+    constructor(public imageService: ProjectDataProviderService) {
         this.images = [...this.imageService.images];
     }
 

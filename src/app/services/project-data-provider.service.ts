@@ -13,10 +13,11 @@ export class ProjectImage {
 @Injectable({
     providedIn: 'any'
 })
-export class ImageService {
+export class ProjectDataProviderService {
     private _images: ProjectImage[];
     private _featuredImage: ProjectImage;
     private _selectedImage: ProjectImage;
+    projectDescription: { headline: string; "headline-note": string; "secondary-headline": string; "full-description": string };
 
     get selectedImage(): ProjectImage {
         return this._selectedImage;
@@ -48,7 +49,7 @@ export class ImageService {
         this._featuredImage = this._images[(featuredIndex + 1) % this._images.length]
     }
 
-    getPreviousFeared() {
+    getPreviousFeatured() {
         let featuredIndex = this._images.indexOf(this._featuredImage);
         this._featuredImage = this._images[(this._images.length + featuredIndex - 1) % this._images.length]
     }

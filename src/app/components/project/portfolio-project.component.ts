@@ -49,9 +49,6 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class PortfolioProjectComponent implements OnInit {
 
-    @Input() projectImagesPath;
-
-
     constructor() {
     }
 

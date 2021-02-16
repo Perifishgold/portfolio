@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
-import {ImageService} from "../../services/image.service";
+import {ProjectDataProviderService} from "../../services/project-data-provider.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
@@ -133,7 +133,7 @@ export class FeaturedComponent implements AfterViewInit {
     @ViewChild('featuredImageContainer') featuredImageContainerViewChilled;
     featuredImageContainer: ElementRef;
 
-    constructor(public imageService: ImageService) {
+    constructor(public imageService: ProjectDataProviderService) {
     }
 
     changeFeature(direction: number): void {
@@ -150,7 +150,7 @@ export class FeaturedComponent implements AfterViewInit {
         if (this.moveDirection === 1) {
             this.imageService.getNextFeatured();
         } else if (this.moveDirection === -1) {
-            this.imageService.getPreviousFeared();
+            this.imageService.getPreviousFeatured();
         }
     }
 
