@@ -5,7 +5,7 @@ import {Component, Input, OnInit} from '@angular/core';
     template: `
         <div class="projectsSelectionContainer">
             <ng-container *ngFor="let project of this.projects">
-                <div appZoomInHover class="square selectable-project">
+                <div appZoomIn class="square selectable-project">
                     <div class="content">
                         <div class="primary-headline">{{project["primary-headline"]}}</div>
                         <div class="secondary-headline">{{project["secondary-headline"]}}</div>

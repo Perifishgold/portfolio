@@ -19,7 +19,7 @@ import { FourthYearProjectsComponent } from './components/fourth-year/fourth-yea
 import { ThirdYearProjectsComponent } from './components/third-year/third-year-projects.component';
 import { SecondYearProjectsComponent } from './components/second-year/second-year-projects.component';
 import { FirstYearProjectsComponent } from './components/first-year/first-year-projects.component';
-import { ZoomInHoverDirective } from './directives/zoom-in-hover.directive';
+import { ZoomInDirective } from './directives/zoom-in.directive';
 
 
 @NgModule({
@@ -39,7 +39,7 @@ import { ZoomInHoverDirective } from './directives/zoom-in-hover.directive';
     ThirdYearProjectsComponent,
     SecondYearProjectsComponent,
     FirstYearProjectsComponent,
-    ZoomInHoverDirective,
+    ZoomInDirective,
   ],
   imports: [
     BrowserModule,

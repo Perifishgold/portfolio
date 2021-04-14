@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
             <div class="generalNavigation">
                 <a class="homePageLink" *ngIf="!isHomePage()" routerLink="/home" routerLinkActive="active">
                     <app-portfolio-headline
-                            appZoomInHover
+                            appZoomIn
                             [minimized]="true"
                             class="homePage">
                     </app-portfolio-headline>

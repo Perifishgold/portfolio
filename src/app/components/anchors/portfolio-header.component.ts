@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
         <div class="projectsNavigation">
             <div class="projectTabs">
                 <ng-container *ngFor="let project of this.projectLinks; let i = index">
-                    <a appZoomInHover class="projectTab" [routerLink]="project.link" routerLinkActive="active">
+                    <a appZoomIn class="projectTab" [routerLink]="project.link" routerLinkActive="active">
                         <div class="topLabel" [ngClass]="project.type">{{project.topLabel}}</div>
                         <div class="bottomLabel">{{project.bottomLabel}}</div>
                     </a>

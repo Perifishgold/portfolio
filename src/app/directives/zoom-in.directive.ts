@@ -1,9 +1,9 @@
 import {Directive, ElementRef, HostListener} from '@angular/core';
 
 @Directive({
-    selector: '[appZoomInHover]'
+    selector: '[appZoomIn]'
 })
-export class ZoomInHoverDirective {
+export class ZoomInDirective {
     private el: ElementRef
 
     constructor(el: ElementRef) {

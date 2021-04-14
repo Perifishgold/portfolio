@@ -8,17 +8,17 @@ import {SecondYearProjectsComponent} from "./components/second-year/second-year-
 import {FirstYearProjectsComponent} from "./components/first-year/first-year-projects.component";
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
   { path: 'home', component: HomeComponent },
   { path: 'final-project', component: FinalProjectComponent },
   { path: 'fourth-year-projects', component: FourthYearProjectsComponent },
   { path: 'third-year-projects', component: ThirdYearProjectsComponent },
   { path: 'second-year-projects', component: SecondYearProjectsComponent },
   { path: 'first-year-projects', component: FirstYearProjectsComponent },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 

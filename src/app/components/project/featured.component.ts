@@ -8,7 +8,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
         <div dir="ltr" #featuredImageContainer
              class="featuredImageContainer"
              [ngClass]="{fullScreen:isFullScreen}">
-            <img appZoomInHover class="featuredImage"
+            <img appZoomIn class="featuredImage"
                  (click)="toggleFullScreen()"
                  [@carouselAnimation]="this.state"
                  (@carouselAnimation.done)="onFinish($event)"
