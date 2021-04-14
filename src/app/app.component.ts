@@ -5,6 +5,16 @@ import {Component} from '@angular/core';
     template: `
         <app-portfolio-main></app-portfolio-main>
     `,
-    styles: []
+    styles: [`
+        @font-face {
+            font-family: AgencyFB;
+            src: url('../assets/font/AGENCYR.TTF') format("truetype");
+        }
+
+        @font-face {
+            font-family: LupaPinky;
+            src: url('../assets/font/BN Pinky.ttf') format("truetype");
+        }
+    `]
 })
 export class AppComponent {}

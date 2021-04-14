@@ -31,7 +31,7 @@ import {ProjectDataProviderService} from "../../services/project-data-provider.s
             text-align: right;
             font-size: 55px;
             line-height: 25px;
-            font-family: Lupa Pinky, serif;
+            font-family: LupaPinky, serif;
             letter-spacing: 0;
             color: #B35656;
             opacity: 1;
@@ -41,7 +41,7 @@ import {ProjectDataProviderService} from "../../services/project-data-provider.s
             text-align: right;
             font-size: 18px;
             line-height: 25px;
-            font-family: Lupa Pinky, serif;
+            font-family: LupaPinky, serif;
             letter-spacing: 0;
             color: #000000;
             opacity: 1;
@@ -51,7 +51,7 @@ import {ProjectDataProviderService} from "../../services/project-data-provider.s
             text-align: right;
             font-size: 22px;
             line-height: 25px;
-            font-family: Lupa Pinky, serif;
+            font-family: LupaPinky, serif;
             letter-spacing: 0;
             color: #FFFFFF;
             opacity: 1;
@@ -61,7 +61,7 @@ import {ProjectDataProviderService} from "../../services/project-data-provider.s
             text-align: right;
             font-size: 24px;
             line-height: 25px;
-            font-family: Lupa Pinky, serif;
+            font-family: LupaPinky, serif;
             letter-spacing: 0.6px;
             color: #000000;
             opacity: 1;

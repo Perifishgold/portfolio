@@ -87,7 +87,7 @@ import {Router} from "@angular/router";
         .tab {
             text-align: center;
             font-size: 18px;
-            font-family: Lupa Pinky, serif;
+            font-family: LupaPinky, serif;
             letter-spacing: 2px;
             color: #000000;
             opacity: 1;

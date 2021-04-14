@@ -7,7 +7,7 @@ import {ProjectData} from "../../models/project-data.model";
         <div class="projectsNavigation">
             <div class="projectTabs">
                 <ng-container *ngFor="let project of this.projects; let i = index">
-                    <a appZoomIn class="projectTab" [routerLink]="project.link">
+                    <a appZoomIn class="projectTab" [routerLink]="project.link" routerLinkActive="active">
                         <div class="topLabel" [ngClass]="project.type">{{project.topLabel}}</div>
                         <div class="bottomLabel">{{project.bottomLabel}}</div>
                     </a>
@@ -18,9 +18,6 @@ import {ProjectData} from "../../models/project-data.model";
     styles: [`
         a {
             text-decoration: none;
-        }
-
-        .projectsNavigation {
         }
 
         .projectTabs {
@@ -38,7 +35,7 @@ import {ProjectData} from "../../models/project-data.model";
         .topLabel {
             margin: 2% 4%;
             text-align: right;
-            font-family: Lupa Pinky, serif;
+            font-family: LupaPinky, serif;
             letter-spacing: 0;
             color: #000000;
             opacity: 1;
@@ -54,7 +51,7 @@ import {ProjectData} from "../../models/project-data.model";
             font-size: 20px;
             line-height: 16px;
             text-align: right;
-            font-family: Lupa Pinky, serif;
+            font-family: LupaPinky, serif;
             letter-spacing: 0;
             color: #000000;
             opacity: 1;

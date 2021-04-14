@@ -36,7 +36,7 @@ import {Component, Input, OnInit} from '@angular/core';
             text-align: center;
             font-size: 2rem;
             line-height: 2rem;
-            font-family: Agency FB, serif;
+            font-family: AgencyFB, serif;
             letter-spacing: 0;
             color: #000000;
             opacity: 1;
@@ -51,7 +51,7 @@ import {Component, Input, OnInit} from '@angular/core';
         .secondaryHeadline {
             font-size: 0.6rem;
             line-height: 0.8rem;
-            font-family: Lupa Pinky, serif;
+            font-family: LupaPinky, serif;
             letter-spacing: -0.25px;
             color: #C55858;
             opacity: 1;
@@ -65,16 +65,6 @@ import {Component, Input, OnInit} from '@angular/core';
 
         .lowerHeadline {
             line-height: 8px;
-        }
-
-        @font-face {
-            font-family: Agency FB;
-            src: url(../../../assets/font/AGENCYR.TTF) format("truetype");
-        }
-
-        @font-face {
-            font-family: Lupa Pinky;
-            src: url('../../../assets/font/BN Pinky.ttf') format("truetype");
         }
     `]
 })
