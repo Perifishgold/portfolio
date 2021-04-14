@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {Component} from '@angular/core';
+import {ProjectData} from "../../models/project-data.model";
 
 @Component({
     selector: 'app-portfolio-header',
     template: `
         <div class="projectsNavigation">
             <div class="projectTabs">
-                <ng-container *ngFor="let project of this.projectLinks; let i = index">
-                    <a appZoomIn class="projectTab" [routerLink]="project.link" routerLinkActive="active">
+                <ng-container *ngFor="let project of this.projects; let i = index">
+                    <a appZoomIn class="projectTab" [routerLink]="project.link">
                         <div class="topLabel" [ngClass]="project.type">{{project.topLabel}}</div>
                         <div class="bottomLabel">{{project.bottomLabel}}</div>
                     </a>
@@ -76,12 +76,11 @@ import {Router} from "@angular/router";
         }
     `]
 })
-export class PortfolioHeaderComponent implements OnInit {
-    projectLinks: any[];
-    activeLinkIndex = -1;
+export class PortfolioHeaderComponent {
+    projects: ProjectData[];
 
-    constructor(private router: Router) {
-        this.projectLinks = [
+    constructor() {
+        this.projects = [
             {
                 topLabel: '2020',
                 bottomLabel: 'שנה ה | פרויקט גמר',
@@ -116,10 +115,5 @@ export class PortfolioHeaderComponent implements OnInit {
         ];
     }
 
-    ngOnInit(): void {
-        this.router.events.subscribe((res) => {
-            this.activeLinkIndex = this.projectLinks.indexOf(this.projectLinks.find(tab => tab.link === '.' + this.router.url));
-        });
-    }
 
 }

@@ -4,7 +4,7 @@ import {Component, OnInit} from '@angular/core';
     selector: 'app-home',
     template: `
         <div class="homeContainer">
-            <app-portfolio-headline class="headline"></app-portfolio-headline>
+            <app-portfolio-logo class="headline"></app-portfolio-logo>
         </div>
     `,
     styles: [`

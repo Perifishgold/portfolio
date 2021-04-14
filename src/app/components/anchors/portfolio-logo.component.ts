@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-    selector: 'app-portfolio-headline',
+    selector: 'app-portfolio-logo',
     template: `
         <div class="headline">
             <div *ngIf="!this.minimized"
@@ -78,7 +78,7 @@ import {Component, Input, OnInit} from '@angular/core';
         }
     `]
 })
-export class PortfolioHeadlineComponent implements OnInit {
+export class PortfolioLogoComponent implements OnInit {
     @Input() minimized: boolean = false;
 
     constructor() {

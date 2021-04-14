@@ -10,17 +10,17 @@ import {Router} from "@angular/router";
                 <router-outlet></router-outlet>
             </div>
             <div class="generalNavigation">
-                <a class="homePageLink" *ngIf="!isHomePage()" routerLink="/home" routerLinkActive="active">
-                    <app-portfolio-headline
+                <a class="homePageLink" *ngIf="!isHomePage()" routerLink="/home">
+                    <app-portfolio-logo
                             appZoomIn
                             [minimized]="true"
                             class="homePage">
-                    </app-portfolio-headline>
+                    </app-portfolio-logo>
                 </a>
                 <div class="tabs verticalLine">
-                    <div class="tab rotate">קורות חיים</div>
-                    <div class="tab rotate">ART</div>
-                    <div class="tab rotate">צור קשר</div>
+                    <div appZoomIn class="tab rotate">קורות חיים</div>
+                    <div appZoomIn class="tab rotate">ART</div>
+                    <div appZoomIn class="tab rotate">צור קשר</div>
                 </div>
             </div>
         </div>

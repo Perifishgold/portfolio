@@ -12,7 +12,7 @@ import { FinalProjectComponent } from './components/final-project.component';
 import { ImageSliderComponent } from './components/project/image-slider.component';
 import { FeaturedComponent } from './components/project/featured.component';
 import { ProjectDescriptionComponent } from './components/project/project-description.component';
-import { PortfolioHeadlineComponent } from './components/anchors/portfolio-headline.component';
+import { PortfolioLogoComponent } from './components/anchors/portfolio-logo.component';
 import { PortfolioHeaderComponent } from './components/anchors/portfolio-header.component';
 import { ProjectSelectionViewComponent } from './components/project/project-selection-view.component';
 import { FourthYearProjectsComponent } from './components/fourth-year/fourth-year-projects.component';
@@ -33,7 +33,7 @@ import { PortfolioMainComponent } from './components/portfolio-main.component';
     ImageSliderComponent,
     FeaturedComponent,
     ProjectDescriptionComponent,
-    PortfolioHeadlineComponent,
+    PortfolioLogoComponent,
     PortfolioHeaderComponent,
     ProjectSelectionViewComponent,
     FourthYearProjectsComponent,
