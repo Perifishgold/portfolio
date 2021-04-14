@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
-    selector: 'app-root',
+    selector: 'app-portfolio-main',
     template: `
         <div class="portfolioFlexContainer">
             <div class="mainContent">
@@ -97,40 +97,12 @@ import {Router} from "@angular/router";
         }
     `]
 })
-export class AppComponent implements OnInit {
-    routeLinks: any[];
-    activeLinkIndex = -1;
-
+export class PortfolioMainComponent {
     constructor(private router: Router) {
-        this.routeLinks = [
-            {
-                label: 'home',
-                link: './home',
-                index: 0
-            },
-            {
-                label: '2020',
-                link: './final-project',
-                index: 1
-            }, {
-                label: '2019',
-                link: './fourth-year-projects',
-                index: 2
-            }, {
-                label: '2018',
-                link: './contactDetails',
-                index: 3
-            }
-        ];
     }
 
     isHomePage() {
         return this.router.url === '/home'
     }
 
-    ngOnInit(): void {
-        this.router.events.subscribe((res) => {
-            this.activeLinkIndex = this.routeLinks.indexOf(this.routeLinks.find(tab => tab.link === '.' + this.router.url));
-        });
-    }
 }

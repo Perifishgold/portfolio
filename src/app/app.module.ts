@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './components/app.component';
+import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from "@angular/material/tabs";
 import { AboutComponent } from './components/about.component';
@@ -20,6 +20,7 @@ import { ThirdYearProjectsComponent } from './components/third-year/third-year-p
 import { SecondYearProjectsComponent } from './components/second-year/second-year-projects.component';
 import { FirstYearProjectsComponent } from './components/first-year/first-year-projects.component';
 import { ZoomInDirective } from './directives/zoom-in.directive';
+import { PortfolioMainComponent } from './components/portfolio-main.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ZoomInDirective } from './directives/zoom-in.directive';
     SecondYearProjectsComponent,
     FirstYearProjectsComponent,
     ZoomInDirective,
+    PortfolioMainComponent,
   ],
   imports: [
     BrowserModule,
