@@ -1,4 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ProjectDataProviderService} from "../../services/project-data-provider.service";
+import {ActivatedRoute} from "@angular/router";
+import {PortfolioProjects} from "../../models/portfolio-project.model";
 
 @Component({
     selector: 'app-portfolio-project',
@@ -18,6 +21,9 @@ import {Component, Input, OnInit} from '@angular/core';
         </div>
     `,
     styles: [`
+        :host {
+            flex: 1;
+        }
         .projectGrid {
             display: grid;
             grid-template-columns: repeat(2, minmax(250px, 1fr));
@@ -49,9 +55,15 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class PortfolioProjectComponent implements OnInit {
 
-    constructor() {
-    }
+    constructor(private route: ActivatedRoute, private projectDataProviderService: ProjectDataProviderService) {
+        let projectsCollection = this.route.snapshot.data.projectsCollection as PortfolioProjects;
+        let index: number = Number(route.snapshot.paramMap.get('index'));
+        let currentProject = projectsCollection.projects[index];
 
+        projectDataProviderService.projectImages = currentProject.projectImages;
+        projectDataProviderService.coverImage = currentProject.coverImage;
+        projectDataProviderService.projectDescription = currentProject.projectDescription;
+    }
     ngOnInit() {
     }
 

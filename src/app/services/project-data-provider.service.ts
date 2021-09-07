@@ -1,14 +1,6 @@
 import {Injectable} from '@angular/core';
-
-export class ProjectImage {
-    public url: string;
-    public isCover: boolean;
-
-    constructor(url, isCover) {
-        this.url = url;
-        this.isCover = isCover;
-    }
-}
+import {ProjectDescription} from "../models/portfolio-project.model";
+import {ProjectImage} from "../models/project-image.model";
 
 @Injectable({
     providedIn: 'any'
@@ -17,7 +9,7 @@ export class ProjectDataProviderService {
     private _images: ProjectImage[];
     private _featuredImage: ProjectImage;
     private _selectedImage: ProjectImage;
-    projectDescription: { headline: string; "headline-note": string; "secondary-headline": string; "full-description": string };
+    projectDescription: ProjectDescription
 
     get selectedImage(): ProjectImage {
         return this._selectedImage;

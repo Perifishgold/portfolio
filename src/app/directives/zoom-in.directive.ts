@@ -4,6 +4,8 @@ import {Directive, ElementRef, HostListener} from '@angular/core';
     selector: '[appZoomIn]'
 })
 export class ZoomInDirective {
+    private readonly SCALE_FACTOR = 'scale(1.025)';
+
     private el: ElementRef
 
     constructor(el: ElementRef) {
@@ -20,7 +22,7 @@ export class ZoomInDirective {
     }
 
     private zoom(zoomIn: boolean) {
-        this.el.nativeElement.style.transform = zoomIn ? 'scale(1.025)' : null;
+        this.el.nativeElement.style.transform = zoomIn ? this.SCALE_FACTOR : null;
     }
 
 }

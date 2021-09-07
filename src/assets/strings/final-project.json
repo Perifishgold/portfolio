@@ -1,30 +1,34 @@
 {
-  "projectDescription": {
-    "headline": "פרויקט גמר",
-    "headline-note": "בהנחיית אד' מוטי בודק",
-    "secondary-headline": "תכנון נופי אורבני לצד תעשייה קלה בשכונת טלפיות בי-ם",
-    "full-description": "הפרוייקט עוסק בבחינת אתר שדה התעופה באילת, שהוקם יחד עם העיר בשנות ה50, שלאחרונה נסגר ובמקומו הוקם שדה\"ע רמון, כ 20 ק\"מ מחוץ לעיר. התכנון מבקש לקשור בין המרקמים העירוניים והאנושיים הנקטעים בשטחו העצום של השדה שיוצר סיטואציה עירונית חריגה, כזו שנוצרת הפרדה, בכל תחומי החיים, בין העיר אילת לעיר התיירותית. שלב המחקר וניתוח האתר התמקד בחיפוש אחר אופיה ומאפייניה הייחודיים של העיר, כעיר קצה-ים–מדבר ונופש בהיבטים האדריכליים, הגאוגרפיים והאנושיים."
-  },
-  "coverImage": "assets/img/finalProject/cover.png",
-  "projectImages": [
-    "assets/img/finalProject/cover.png",
-    "assets/img/finalProject/1.png",
-    "assets/img/finalProject/2.png",
-    "assets/img/finalProject/3.png",
-    "assets/img/finalProject/4.png",
-    "assets/img/finalProject/5.png",
-    "assets/img/finalProject/6.png",
-    "assets/img/finalProject/7.png",
-    "assets/img/finalProject/8.png",
-    "assets/img/finalProject/9.png",
-    "assets/img/finalProject/10.png",
-    "assets/img/finalProject/11.png",
-    "assets/img/finalProject/12.png",
-    "assets/img/finalProject/13.png",
-    "assets/img/finalProject/14.png",
-    "assets/img/finalProject/15.png",
-    "assets/img/finalProject/16.png",
-    "assets/img/finalProject/17.png",
-    "assets/img/finalProject/18.png"
+  "projects": [
+    {
+      "projectDescription": {
+        "headline": "פרויקט גמר",
+        "headline-note": "בהנחיית אד' מוטי בודק",
+        "secondary-headline": "תכנון נופי אורבני לצד תעשייה קלה בשכונת טלפיות בי-ם",
+        "full-description": "הפרוייקט עוסק בבחינת אתר שדה התעופה באילת, שהוקם יחד עם העיר בשנות ה50, שלאחרונה נסגר ובמקומו הוקם שדה\"ע רמון, כ 20 ק\"מ מחוץ לעיר. התכנון מבקש לקשור בין המרקמים העירוניים והאנושיים הנקטעים בשטחו העצום של השדה שיוצר סיטואציה עירונית חריגה, כזו שנוצרת הפרדה, בכל תחומי החיים, בין העיר אילת לעיר התיירותית. שלב המחקר וניתוח האתר התמקד בחיפוש אחר אופיה ומאפייניה הייחודיים של העיר, כעיר קצה-ים–מדבר ונופש בהיבטים האדריכליים, הגאוגרפיים והאנושיים."
+      },
+      "coverImage": "assets/img/finalProject/cover.png",
+      "projectImages": [
+        "assets/img/finalProject/cover.png",
+        "assets/img/finalProject/1.png",
+        "assets/img/finalProject/2.png",
+        "assets/img/finalProject/3.png",
+        "assets/img/finalProject/4.png",
+        "assets/img/finalProject/5.png",
+        "assets/img/finalProject/6.png",
+        "assets/img/finalProject/7.png",
+        "assets/img/finalProject/8.png",
+        "assets/img/finalProject/9.png",
+        "assets/img/finalProject/10.png",
+        "assets/img/finalProject/11.png",
+        "assets/img/finalProject/12.png",
+        "assets/img/finalProject/13.png",
+        "assets/img/finalProject/14.png",
+        "assets/img/finalProject/15.png",
+        "assets/img/finalProject/16.png",
+        "assets/img/finalProject/17.png",
+        "assets/img/finalProject/18.png"
+      ]
+    }
   ]
 }

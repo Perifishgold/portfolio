@@ -1,25 +1,53 @@
 {
   "projects": [
     {
-      "project-selection-view": {
+      "projectSelectionView": {
         "primary-headline": "סטודיו נוף",
         "secondary-headline": "תכנון נופי לצ תעשיה בשכ׳ תלפיות, ירושלים"
-      }
+      },
+      "projectDescription": {
+        "headline": "סטודיו נוף",
+        "headline-note": "בהנחיית אד' חווי ליבנה",
+        "secondary-headline": "תכנון נופי אורבני לצד תעשייה קלה בשכ' טלפיות בי-ם",
+        "full-description": "ש חשיבות רבה לתאוריה בעבודה המעשית של האדריכל, אף כיאדריכלים רבים מתנגדים לתאוריה, בטענה שהיא \"סטרילית\"ומגבילה את חופש היצירה שלהם. ויטרוביוס כתב: \"פרקטיקה ותאוריה הם ההורים. פרקטיקה היא המחשבה התכופה והמתמשכת על אופן ביצוע העבודה, או על הפעולה הפשוטה ביותר על מנת לשנות את החומר בצורה הטובה ביותר. תאוריה היא התוצאה של חשיבה זו, המסבירה ומציגה כיצד בוצע שינוי בחומר על מנת לענות על המטרה שאנו מעוניינים בה. האדריכל שהוא פרקטי בלבד, אינו מסוגללהסביר את הסיבות לצורות שהוא משתמש בהן. זה שהוא תאורטי בלבד, גם כן נכשל בכך שהוא תופס את הצל ולא את התוכן. מי שהוא גם תאורטי וגם פרקטי, חמוש באופן כפול: הוא מסוגל לא רק להוכיח את טיב העיצוב והתכנון, אלא גם לבצע אותו\"."
+      },
+      "coverImage": "assets/img/finalProject/cover.png",
+      "projectImages": [
+        "assets/img/finalProject/cover.png",
+        "assets/img/finalProject/1.png",
+        "assets/img/finalProject/2.png",
+        "assets/img/finalProject/3.png",
+        "assets/img/finalProject/4.png",
+        "assets/img/finalProject/5.png",
+        "assets/img/finalProject/6.png",
+        "assets/img/finalProject/7.png",
+        "assets/img/finalProject/8.png",
+        "assets/img/finalProject/9.png",
+        "assets/img/finalProject/10.png",
+        "assets/img/finalProject/11.png",
+        "assets/img/finalProject/12.png",
+        "assets/img/finalProject/13.png",
+        "assets/img/finalProject/14.png",
+        "assets/img/finalProject/15.png",
+        "assets/img/finalProject/16.png",
+        "assets/img/finalProject/17.png",
+        "assets/img/finalProject/18.png"
+      ]
     },
     {
-      "project-selection-view": {
+      "projectSelectionView": {
         "primary-headline": "סטודיו עיצוב פנים",
         "secondary-headline": "מגורים לסטודנטים בתל אביב"
       }
     },
     {
-      "project-selection-view": {
+      "projectSelectionView": {
         "primary-headline": "סטודיו טכנולוגי 2",
         "secondary-headline": "מבנה עירוני קטן ופריק"
       }
     },
     {
-      "project-selection-view": {
+      "projectSelectionView": {
         "primary-headline": "סטודיו מורכב",
         "secondary-headline": "שדה תעופה בהונג קונג 2050"
       }

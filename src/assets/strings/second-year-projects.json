@@ -1,25 +1,25 @@
 {
   "projects": [
     {
-      "project-selection-view": {
+      "projectSelectionView": {
         "primary-headline": "סטודיו 3",
         "secondary-headline": "כ-12 יח״מ בשכ׳ מונטיפיורי, תל אביב"
       }
     },
     {
-      "project-selection-view": {
+      "projectSelectionView": {
         "primary-headline": "סטודיו 4",
         "secondary-headline": "מבנה קהילתי בשכ׳ פלורנטין, תל אביב"
       }
     },
     {
-      "project-selection-view": {
+      "projectSelectionView": {
         "primary-headline": "תיק תיעוד",
         "secondary-headline": "ארלוזורוב 101 תל אביב, אד׳ אריה שרון"
       }
     },
     {
-      "project-selection-view": {
+      "projectSelectionView": {
         "primary-headline": "עיצוב אובייקט",
         "secondary-headline": "שרפרף"
       }

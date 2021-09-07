@@ -1,14 +1,17 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {PortfolioProject, PortfolioProjects} from "../../models/portfolio-project.model";
+import {Subscription} from "rxjs";
 
 @Component({
     selector: 'app-project-selection-view',
     template: `
         <div class="projectsSelectionContainer">
-            <ng-container *ngFor="let project of this.projects">
-                <div appZoomIn class="square selectable-project">
+            <ng-container *ngFor="let project of this.projects; let i = index">
+                <div appZoomIn class="square selectable-project" (click)="goToProject(project, i)">
                     <div class="content">
-                        <div class="primary-headline">{{project["primary-headline"]}}</div>
-                        <div class="secondary-headline">{{project["secondary-headline"]}}</div>
+                        <div class="primary-headline">{{project.projectSelectionView["primary-headline"]}}</div>
+                        <div class="secondary-headline">{{project.projectSelectionView["secondary-headline"]}}</div>
                     </div>
                 </div>
             </ng-container>
@@ -47,10 +50,10 @@ import {Component, Input, OnInit} from '@angular/core';
 
         .content {
             position: absolute;
-            height: 90%; 
+            height: 90%;
             width: 90%;
             padding: 5%;
-            display:flex;
+            display: flex;
             flex-direction: column;
             justify-content: center;
         }
@@ -76,14 +79,28 @@ import {Component, Input, OnInit} from '@angular/core';
         }
     `]
 })
-export class ProjectSelectionViewComponent implements OnInit {
+export class ProjectSelectionViewComponent implements OnInit, OnDestroy {
+    projects: PortfolioProject[];
+    private subscription: Subscription
 
-    @Input() projects;
-
-    constructor() {
+    constructor(private router: Router, private route: ActivatedRoute) {
     }
 
     ngOnInit(): void {
+         this.subscription = this.route.data.subscribe(data => {
+            let portfolioProjects = data.projectsCollection as PortfolioProjects;
+            this.projects = portfolioProjects.projects;
+        });
+    }
+
+    goToProject(project: PortfolioProject, index: number) {
+        let collection = `${this.route.snapshot.paramMap.get('collection')}`;
+        let url = `project;collection=${collection};index=${index}`;
+        this.router.navigateByUrl(url, {state: {project: project}});
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe()
     }
 
 }

@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {ProjectDataProviderService} from "../../services/project-data-provider.service";
-import {animate, state, style, transition, trigger} from "@angular/animations";
+import {animate, style, transition, trigger} from "@angular/animations";
 
 @Component({
     selector: 'app-featured',

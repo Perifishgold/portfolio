@@ -1,25 +1,25 @@
 {
   "projects": [
     {
-      "project-selection-view": {
+      "projectSelectionView": {
         "primary-headline": "סטודיו 1",
         "secondary-headline": "מקום וחלל"
       }
     },
     {
-      "project-selection-view": {
+      "projectSelectionView": {
         "primary-headline": "סטודיו 2",
         "secondary-headline": "חומרים וחיבורים"
       }
     },
     {
-      "project-selection-view": {
+      "projectSelectionView": {
         "primary-headline": "עיצוב בסיסי",
         "secondary-headline": "קונספט והפשטה"
       }
     },
     {
-      "project-selection-view": {
+      "projectSelectionView": {
         "primary-headline": "שרטוט",
         "secondary-headline": "התבוננות"
       }

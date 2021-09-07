@@ -1,16 +1,20 @@
 import {Component} from '@angular/core';
-import {ProjectData} from "../../models/project-data.model";
+import {ProjectLinkData} from "../../models/portfolio-project.model";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-portfolio-header',
     template: `
         <div class="projectsNavigation">
             <div class="projectTabs">
-                <ng-container *ngFor="let project of this.projects; let i = index">
-                    <a appZoomIn class="projectTab" [routerLink]="project.link" routerLinkActive="active">
+                <ng-container *ngFor="let project of this.projects">
+                    <div appZoomIn
+                         class="projectTab"
+                         [ngClass]="{active: this.selectedProject==project}"
+                         (click)="onSelect(project)">
                         <div class="topLabel" [ngClass]="project.type">{{project.topLabel}}</div>
                         <div class="bottomLabel">{{project.bottomLabel}}</div>
-                    </a>
+                    </div>
                 </ng-container>
             </div>
         </div>
@@ -30,6 +34,7 @@ import {ProjectData} from "../../models/project-data.model";
         .projectTab {
             margin-left: 3%;
             user-select: none;
+            cursor: pointer;
         }
 
         .topLabel {
@@ -74,43 +79,52 @@ import {ProjectData} from "../../models/project-data.model";
     `]
 })
 export class PortfolioHeaderComponent {
-    projects: ProjectData[];
+    projects: ProjectLinkData[];
 
-    constructor() {
+    selectedProject: ProjectLinkData = null;
+
+    constructor(private router: Router) {
         this.projects = [
             {
                 topLabel: '2020',
                 bottomLabel: 'שנה ה | פרויקט גמר',
-                link: './final-project',
+                rout: 'project',
+                collection: 'final-project',
                 type: 'primary',
-                index: 1
             }, {
                 topLabel: '2019',
                 bottomLabel: 'שנה ד',
-                link: './fourth-year-projects',
+                rout: 'project-select',
+                collection: 'fourth-year-projects',
                 type: 'secondary',
-                index: 2
             }, {
                 topLabel: '2018',
                 bottomLabel: 'שנה ג',
-                link: './third-year-projects',
+                rout: 'project-select',
+                collection: 'third-year-projects',
                 type: 'secondary',
-                index: 3
             }, {
                 topLabel: '2017',
                 bottomLabel: 'שנה ב',
-                link: './second-year-projects',
+                rout: 'project-select',
+                collection: 'second-year-projects',
                 type: 'secondary',
-                index: 4
             }, {
                 topLabel: '2016',
                 bottomLabel: 'שנה א',
-                link: './first-year-projects',
+                rout: 'project-select',
+                collection: 'first-year-projects',
                 type: 'secondary',
-                index: 5
             }
         ];
     }
 
+    onSelect(project: ProjectLinkData) {
+        this.selectedProject = project;
+        this.goToProject(project)
+    }
 
+    goToProject(project: ProjectLinkData) {
+        this.router.navigate([project.rout, {collection: project.collection}]);
+    }
 }

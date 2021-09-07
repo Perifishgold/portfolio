@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, style, state, transition, trigger} from "@angular/animations";
-import {ProjectDataProviderService, ProjectImage} from "../../services/project-data-provider.service";
+import {ProjectDataProviderService} from "../../services/project-data-provider.service";
+import {ProjectImage} from "../../models/project-image.model";
 
 
 @Component({

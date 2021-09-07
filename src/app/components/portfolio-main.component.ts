@@ -39,6 +39,7 @@ import {Router} from "@angular/router";
 
         .mainContent {
             height: 100%;
+            /*height: calc(var(--vh, 1vh) * 100 - 90px);*/
             flex-grow: 1;
             margin-right: 10%;
             margin-top: 3%;
@@ -99,6 +100,8 @@ import {Router} from "@angular/router";
 })
 export class PortfolioMainComponent {
     constructor(private router: Router) {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
     }
 
     isHomePage() {
